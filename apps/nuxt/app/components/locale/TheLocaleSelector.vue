@@ -2,7 +2,6 @@
 import { translateLocale } from '@base/translations/locale.translate'
 import type { DropdownMenuItem } from '@base/types/core/dropdownMenuItem.type'
 import type { LocaleObject } from '@nuxtjs/i18n'
-import { AppIcon } from '@wisemen/vue-core'
 
 const { locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
@@ -26,7 +25,7 @@ const dropdownItems = computed<DropdownMenuItem[]>(() => {
   <AppDropdownMenu
     :items="dropdownItems"
   >
-    <button class="flex items-center gap-1 px-2 py-1 font-medium uppercase text-foreground">
+    <button class="text-foreground flex items-center gap-1 px-2 py-1 font-medium uppercase">
       <span>
         {{ locale }}
       </span>

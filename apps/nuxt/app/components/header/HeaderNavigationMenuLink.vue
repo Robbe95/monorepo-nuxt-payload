@@ -4,6 +4,14 @@ import { NavigationMenuLink } from 'radix-vue'
 import type { NavigationLink } from '@/types/navigation/navigationLink.type'
 
 defineProps<NavigationLink>()
+
+const localeRoute = useLocalePath()
+
+const { t } = useI18n()
+
+localeRoute({ name: 'page' })
+
+t('')
 </script>
 
 <template>

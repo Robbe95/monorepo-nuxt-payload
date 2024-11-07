@@ -11,28 +11,12 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true,
   },
-  i18n: {
-    compilation: {
-      strictMessage: false,
-    },
-    defaultLocale: 'en',
-    langDir: 'locales',
-    locales: [
-      { iso: 'en-US', code: 'en', file: 'en.json' },
-      { iso: 'nl-BE', code: 'nl', file: 'nl.json' },
-      { iso: 'fr-FR', code: 'fr', file: 'fr.json' },
-    ],
-    strategy: 'prefix',
-    vueI18n: './i18n.config.ts',
-  },
-
   modules: [
     '@nuxtjs/i18n',
     '@pinia/nuxt',
     'nuxt-time',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
-    'nuxt-typed-router',
     '@nuxt/test-utils/module',
   ],
   runtimeConfig: {

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { CurrentUser } from '@auth/models/current-user/currentUser.model'
 import { useAuthStore } from '@auth/stores/auth.store'
-import { AppText } from '@wisemen/vue-core'
 import { PopoverClose } from 'radix-vue'
 
 const authStore = useAuthStore()

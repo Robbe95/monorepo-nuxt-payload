@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import AppIncrement from '@base/components/core/increment/AppIncrement.vue'
-import type { FormFieldErrors } from '@wisemen/vue-core'
 
 const props = withDefaults(
   defineProps<{
@@ -33,7 +32,7 @@ const props = withDefaults(
   },
 )
 
-const model = defineModel<null | number>({
+const model = defineModel<number | null>({
   required: true,
 })
 </script>

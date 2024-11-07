@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { resetPasswordFormSchema } from '@auth/models/reset-password/resetPasswordForm.model'
-import { FormPasswordInput } from '@wisemen/vue-core'
 import type { Form } from 'formango'
 import { useI18n } from 'vue-i18n'
 

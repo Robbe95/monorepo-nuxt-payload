@@ -1,5 +1,4 @@
 <script setup lang="ts" generic="TFormType extends z.ZodType">
-import { AppIcon, AppText } from '@wisemen/vue-core'
 import type { Form } from 'formango'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -20,15 +19,15 @@ const isBannerVisible = computed<boolean>(() => {
   <AppHeightTransition :duration="200">
     <div v-if="isBannerVisible">
       <div
-        class="mb-4 flex items-center rounded-input border border-solid border-destructive bg-destructive/5 px-4 py-3"
+        class="rounded-input border-destructive bg-destructive/5 mb-4 flex items-center border border-solid px-4 py-3"
       >
         <AppIcon
-          class="size-5 shrink-0 text-destructive"
+          class="text-destructive size-5 shrink-0"
           icon="warning"
         />
 
         <AppText
-          class="ml-4 max-w-sm text-destructive"
+          class="text-destructive ml-4 max-w-sm"
           variant="subtext"
         >
           {{ t('error.validation_error') }}

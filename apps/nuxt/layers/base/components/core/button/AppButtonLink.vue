@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Icon } from '@wisemen/vue-core'
-import { AppIcon } from '@wisemen/vue-core'
 import type { RouteLocationRaw } from 'vue-router'
 
 import type { ButtonStyleProps } from './button.style'

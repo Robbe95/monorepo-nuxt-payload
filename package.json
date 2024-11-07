@@ -23,7 +23,9 @@
   "pnpm": {
     "overrides": {
       "@types/react": "npm:types-react@19.0.0-rc.1",
-      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+      "@intlify/eslint-plugin-vue-i18n>@intlify/core-base": "^10.0.4",
+      "@intlify/eslint-plugin-vue-i18n>@intlify/message-compiler": "^10.0.4"
     }
   },
   "overrides": {

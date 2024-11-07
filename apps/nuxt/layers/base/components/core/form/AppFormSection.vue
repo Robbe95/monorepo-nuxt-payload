@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { AppText } from '@wisemen/vue-core'
-
 const props = withDefaults(
   defineProps<{
     title: string
-    description?: null | string
+    description?: string | null
   }>(),
   {
     description: null,
@@ -24,7 +22,7 @@ const props = withDefaults(
 
       <AppText
         v-if="props.description !== null"
-        class="mt-1 text-muted-foreground"
+        class="text-muted-foreground mt-1"
         variant="subtext"
       >
         {{ props.description }}

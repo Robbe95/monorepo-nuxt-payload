@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAuthResetPasswordMutation } from '@auth/api/mutations/authResetPassword.mutation'
 import { resetPasswordFormSchema } from '@auth/models/reset-password/resetPasswordForm.model'
-import { useToast } from '@wisemen/vue-core'
+import { useToast } from '@base/composables/core/toast.composable'
 import { useForm } from 'formango'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'

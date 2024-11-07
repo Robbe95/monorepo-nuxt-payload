@@ -3,7 +3,6 @@ import { formatPrice } from '@base/formatters/price.formatter'
 import type { Price } from '@base/models/price/price.model'
 import type { OrderProduct } from '@cart/models/order-product/orderProduct.model'
 import { useCartStore } from '@cart/stores/cart.store'
-import { AppText } from '@wisemen/vue-core'
 
 interface Props {
   orderProduct: OrderProduct
@@ -61,7 +60,7 @@ async function onUpdateProduct(amount: number) {
 
 <template>
   <div
-    class="relative rounded-button bg-neutral-100 p-3"
+    class="rounded-button relative bg-neutral-100 p-3"
   >
     <div
       class="flex w-80 items-center justify-between gap-4"
@@ -83,7 +82,7 @@ async function onUpdateProduct(amount: number) {
         {{ formatPrice(totalPrice) }}
       </AppText>
     </div>
-    <AppDivider class="my-2 bg-primary/10" />
+    <AppDivider class="bg-primary/10 my-2" />
     <CartHeaderActions
       v-model:amount="amount"
       :is-removing="isRemoving"
