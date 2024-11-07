@@ -1,0 +1,4 @@
+[submodule "apps/nuxt"]
+	path = apps/nuxt
+	url = https://github.com/wisemen-digital/nuxt-project-template.git
+	branch = monorepo

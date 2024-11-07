@@ -1,0 +1,33 @@
+{
+  "name": "nuxt-layer-template",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.15.4",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "devturbo": "pnpm -r devturbo",
+    "dev": "pnpm -r dev",
+    "dev:payload": "pnpm -filter ./apps/payload dev",
+    "lint": "pnpm -r lint",
+    "lint-all": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "cleanup": "pnpm -r cleanup",
+    "build": "pnpm client-portal:build",
+    "typecheck": "pnpm -r run typecheck",
+    "test": "vitest --run",
+    "precommit": "pnpm lint-all && pnpm -r run typecheck && pnpm run test"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+  }
+}

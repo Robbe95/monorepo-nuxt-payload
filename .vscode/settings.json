@@ -1,0 +1,23 @@
+{
+  "i18n-ally.localesPaths": [
+    "apps/nuxt/layers/base/locales",
+    "apps/nuxt/layers/auth/locales",
+    "apps/nuxt/app/locales"
+  ],
+  "i18n-ally.displayLanguage": "nl",
+  "i18n-ally.autoDetection": true,
+  "i18n-ally.detect_hard_strings": true,
+  "i18n-ally.extract.autoDetect": true,
+  "i18n-ally.enabledFrameworks": [
+    "vue"
+  ],
+  "i18n-ally.keystyle": "flat",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "i18n-ally.sourceLanguage": "en",
+  "eslint.workingDirectories": [
+    "apps/nuxt",
+    "apps/payload",
+  ],
+}
+

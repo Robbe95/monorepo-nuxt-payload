@@ -1,0 +1,46 @@
+{
+  "name": "next-latest-starter",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 8000",
+    "devturbo": "cross-env NODE_OPTIONS=--no-deprecation next dev --turbo",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "lint": "eslint",
+    "ci": "payload migrate && pnpm build",
+    "generate:types": "payload generate:types",
+    "generate:schema": "payload-graphql generate:schema",
+    "standalone-script": "node ./src/scripts/standalone-script.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@payloadcms/db-mongodb": "beta",
+    "@payloadcms/db-postgres": "beta",
+    "@payloadcms/next": "beta",
+    "@payloadcms/richtext-lexical": "beta",
+    "@payloadcms/richtext-slate": "beta",
+    "@payloadcms/ui": "beta",
+    "@trpc/server": "^10.45.2",
+    "cross-env": "^7.0.3",
+    "graphql": "^16.9.0",
+    "next": "15.0.2",
+    "payload": "beta",
+    "react": "19.0.0-rc-65a56d0e-20241020",
+    "react-dom": "19.0.0-rc-65a56d0e-20241020",
+    "sharp": "0.33.5",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "@wisemen/eslint-config-vue": "^0.2.0",
+    "eslint": "^9.14.0",
+    "eslint-config-next": "15.0.2",
+    "typescript": "5.6.3"
+  }
+}
