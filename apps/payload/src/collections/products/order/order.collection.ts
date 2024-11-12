@@ -3,7 +3,7 @@ import type { CollectionConfig } from 'payload'
 export const orderCollection: CollectionConfig = {
   admin: {
     group: 'Products',
-    useAsTitle: 'title',
+    useAsTitle: 'user',
   },
   fields: [
     {

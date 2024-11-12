@@ -1,8 +1,7 @@
 import { publicProcedure } from '@payload/trpc/procedures/public.procedure'
-import { getPayload } from '@payload/utils/getPayload'
+import { getPayload } from '@payload/utils/getPayload.util'
 
 export const getPosts = publicProcedure
-
   .query(async () => {
     const payload = await getPayload()
     const paginatedPosts = await payload.find({

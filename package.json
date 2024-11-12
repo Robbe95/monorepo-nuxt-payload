@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "devturbo": "pnpm -r devturbo",
-    "dev": "pnpm -r dev",
+    "dev": "turbo run dev",
     "dev:payload": "pnpm -filter ./apps/payload dev",
     "lint": "pnpm -r lint",
     "lint-all": "pnpm -r lint",
@@ -31,5 +31,8 @@
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+  },
+  "dependencies": {
+    "turbo": "^2.2.3"
   }
 }

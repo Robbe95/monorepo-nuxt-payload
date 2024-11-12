@@ -13,15 +13,9 @@ export default defineI18nConfig(() => ({
     'fr',
   ],
   messages: {
-    en: {
-      ...en,
-      hello: 'Hello',
-    },
+    en,
     fr,
-    nl: {
-      ...nl,
-      hello: 'Hello',
-    },
+    nl,
   },
   warnHtmlInMessage: 'off',
 }))

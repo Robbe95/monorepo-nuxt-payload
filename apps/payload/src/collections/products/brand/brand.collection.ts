@@ -11,6 +11,12 @@ export const brandCollection: CollectionConfig = {
       localized: true,
       type: 'text',
     },
+    {
+      name: 'products',
+      collection: 'products',
+      type: 'join',
+      on: 'brand',
+    },
   ],
   slug: 'brands',
 }

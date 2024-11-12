@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@payload': path.resolve(__dirname, '../payload/src'),
     '@payload-config': path.resolve(__dirname, '../payload/payload.config.ts'),
     '@payload-types': path.resolve(__dirname, '../payload'),
+    '@post': path.resolve(__dirname, './layers/post'),
     '@root': path.resolve(__dirname, './'),
     '~~': path.resolve(__dirname, './disable'),
   },
