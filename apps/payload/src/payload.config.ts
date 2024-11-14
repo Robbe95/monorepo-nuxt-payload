@@ -20,6 +20,14 @@ export default buildConfig({
       password: 'test',
       prefillOnly: true,
     },
+    components: {
+      afterLogin: [
+        '@payload/components/auth/LoginButton',
+      ],
+    },
+    importMap: {
+      baseDir: path.resolve(dirname),
+    },
     livePreview: {
       collections: [
         'pages',
