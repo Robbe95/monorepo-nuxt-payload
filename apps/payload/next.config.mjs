@@ -27,6 +27,21 @@ const nextConfig = {
         // Routes this applies to
         source: '/api/(.*)',
       },
+      // {
+      //   has: [
+      //     {
+      //       key: 'authorization',
+      //       type: 'cookie',
+      //     },
+      //   ],
+      //   headers: [
+      //     {
+      //       key: 'x-authorization',
+      //       value: 'test',
+      //     },
+      //   ],
+      //   source: '/api/:path*',
+      // },
     ]
   },
 }

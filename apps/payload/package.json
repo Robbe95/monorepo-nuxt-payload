@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 8000",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 5173",
     "devturbo": "cross-env NODE_OPTIONS=--no-deprecation next dev --turbo",
     "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
@@ -28,6 +28,7 @@
     "@trpc/server": "^10.45.2",
     "cross-env": "^7.0.3",
     "graphql": "^16.9.0",
+    "jose": "^5.9.6",
     "next": "15.0.2",
     "payload": "beta",
     "pkce-challenge": "^4.1.0",
