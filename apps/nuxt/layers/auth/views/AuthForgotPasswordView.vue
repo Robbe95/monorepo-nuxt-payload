@@ -56,7 +56,7 @@ onSubmitForm(async (values) => {
     <div class="mt-4 flex justify-center">
       <NuxtLinkLocale
         class="text-subtext text-primary hover:underline focus:underline"
-        to="/auth/login"
+        to="auth-login"
       >
         {{ t('auth.back_to_login') }}
       </NuxtLinkLocale>

@@ -1,7 +1,7 @@
 import type { UserId } from '@auth/models/current-user/currentUserId.model'
 import type { RegisterDto } from '@auth/models/register/registerDto.model'
 import type { RegisterForm } from '@auth/models/register/registerForm.model'
-import type { User } from '@payload-types/payload-types'
+import type { User } from '@payload/payload-types'
 
 import type { CurrentUser } from './current-user/currentUser.model'
 import type { ForgotPasswordDto } from './forgot-password/forgotPasswordDto.model'

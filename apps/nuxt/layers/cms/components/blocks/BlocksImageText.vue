@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ImageTextBlock } from '@payload-types/payload-types'
+import type { ImageTextBlock } from '@payload/payload-types'
 
 interface Props {
   block: ImageTextBlock

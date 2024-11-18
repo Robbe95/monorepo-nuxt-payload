@@ -34,7 +34,7 @@ export default defineNuxtPlugin({
         const localeRoute = useLocaleRoute()
 
         if (response.status === 401) {
-          await navigateTo(localeRoute('/auth/login'))
+          await navigateTo(localeRoute('auth-login'))
         }
       },
     })

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Page } from '@payload-types/payload-types'
+import type { Page } from '@payload/payload-types'
 
 interface Props {
   page: Page

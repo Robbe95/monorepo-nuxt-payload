@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useTrpc } from '@auth/api/useTrpc'
 import { useLivePreview } from '@cms/composables/useLivePreview'
-import type { Page } from '@payload-types/payload-types'
+import type { Page } from '@payload/payload-types'
 
 import NotFoundView from './NotFoundView.vue'
 

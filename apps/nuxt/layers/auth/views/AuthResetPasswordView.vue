@@ -19,7 +19,7 @@ const {
   schema: resetPasswordFormSchema,
 })
 
-const route = useRoute('auth-reset-password')
+const route = useRoute()
 
 form.register('token', route.query.token as string)
 form.register('email', route.query.email as string)

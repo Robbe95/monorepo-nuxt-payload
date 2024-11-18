@@ -3,9 +3,8 @@
 const route = useRoute()
 const { t } = useI18n()
 const head = useLocaleHead({
-  addDirAttribute: true,
-  addSeoAttributes: true,
-  identifierAttribute: 'id',
+  dir: true,
+  seo: true,
 })
 
 const title = computed<string>(() => t(
@@ -16,8 +15,8 @@ const title = computed<string>(() => t(
 
 <template>
   <Html
-    :lang="head.htmlAttrs.lang"
-    :dir="head.htmlAttrs.dir"
+    :lang="head.htmlAttrs?.lang"
+    :dir="head.htmlAttrs?.dir"
   >
     <Head>
       <Title>{{ title }}</Title>

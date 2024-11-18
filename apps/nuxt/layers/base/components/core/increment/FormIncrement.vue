@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppIncrement from '@base/components/core/increment/AppIncrement.vue'
+import type { FormFieldErrors } from '@base/types/core/formFieldErrors.type'
 
 const props = withDefaults(
   defineProps<{

@@ -119,7 +119,7 @@ const isCartUpdating = computed<boolean>(() => {
           </div>
           <PopoverClose as-child>
             <AppButtonLink
-              to="/checkout/overview"
+              to="index"
               class="w-full text-center"
             >
               {{ t('order.finish_order') }}

@@ -8,7 +8,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "typecheck": "vue-tsc -b",
+    "typecheck": "vue-tsc --noEmit",
     "lint": "eslint .",
     "postinstall": "nuxt prepare",
     "lint:fix": "eslint . --fix",

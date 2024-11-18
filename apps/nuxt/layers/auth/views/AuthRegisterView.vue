@@ -65,7 +65,7 @@ onSubmitForm(async (data) => {
         {{ t('auth.register.already_have_account') }}
       </span>
       <NuxtLinkLocale
-        to="/auth/login"
+        to="auth-login"
         class="rounded text-primary focus-ring hover:underline focus:underline"
       >
         {{ t('auth.register.login') }}

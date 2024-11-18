@@ -49,7 +49,7 @@ export const useAuthStore = defineStore('auth', () => {
   async function logout(): Promise<void> {
     const router = useRouter()
     const localeRoute = useLocaleRoute()
-    const localeAuthRoute = localeRoute('/auth/login')
+    const localeAuthRoute = localeRoute('auth-login')
 
     oAuthClient.logout()
     setCurrentUser(null)

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { translateLocale } from '@base/translations/locale.translate'
 import type { DropdownMenuItem } from '@base/types/core/dropdownMenuItem.type'
-import type { LocaleObject } from '@nuxtjs/i18n'
 
 const { locale, locales } = useI18n()
+
+type LocaleObject = typeof locales.value[number]
 const switchLocalePath = useSwitchLocalePath()
 
 const availableLocales = computed<LocaleObject[]>(() => {

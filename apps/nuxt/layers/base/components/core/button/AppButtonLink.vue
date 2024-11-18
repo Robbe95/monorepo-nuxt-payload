@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import type { RouteLocationRaw } from 'vue-router'
+import type { Icon } from '@base/icons/icons'
+
+import type { TypedRoute } from '~/types/navigation/navigationLink.type'
 
 import type { ButtonStyleProps } from './button.style'
 import { useButtonStyle } from './button.style'
@@ -30,7 +32,7 @@ export interface AppButtonProps {
    * @default 'default'
    */
   size?: ButtonStyleProps['size']
-  to: RouteLocationRaw
+  to: TypedRoute
   /**
    * The type of the button.
    * @default 'button'

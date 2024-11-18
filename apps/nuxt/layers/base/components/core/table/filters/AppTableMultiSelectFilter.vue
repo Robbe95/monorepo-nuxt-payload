@@ -35,7 +35,7 @@ const filterModel = computed<string[]>(() => {
 
   return ([
     data,
-  ] ?? []) as string[]
+  ]) as string[]
 })
 
 const numberOfSelectedItems = computed<number>(() => {

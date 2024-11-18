@@ -14,7 +14,7 @@ import parsePhoneNumber, {
   getExampleNumber,
 } from 'libphonenumber-js'
 import examples from 'libphonenumber-js/mobile/examples'
-import { vMaska } from 'maska'
+import { vMaska } from 'maska/vue'
 import {
   computed,
   ref,
