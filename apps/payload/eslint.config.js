@@ -9,7 +9,8 @@ export default [
   },
   {
     ignores: [
-      '**/app/',
+      '**/app/(payload)',
+
       '**/payload-types.ts',
     ],
   },
