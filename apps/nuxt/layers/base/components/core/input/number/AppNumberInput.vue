@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{
    * The id of the input.
    * @default null
    */
-  id?: null | string
+  id?: string | null
   /**
    * Whether the input is disabled.
    * @default false
@@ -39,17 +39,17 @@ const props = withDefaults(defineProps<{
    * The maximum value of the input.
    * @default null
    */
-  max?: null | number
+  max?: number | null
   /**
    * The minimum value of the input.
    * @default 0
    */
-  min?: null | number
+  min?: number | null
   /**
    * The placeholder of the input.
    * @default null
    */
-  placeholder?: null | string
+  placeholder?: string | null
 }>(), {
   id: null,
   isDisabled: false,
@@ -62,11 +62,11 @@ const props = withDefaults(defineProps<{
   placeholder: null,
 })
 
-const model = defineModel<null | number>({
+const model = defineModel<number | null>({
   required: true,
 })
 
-const computedModel = computed<null | string>({
+const computedModel = computed<string | null>({
   get() {
     if (model.value === null) {
       return null

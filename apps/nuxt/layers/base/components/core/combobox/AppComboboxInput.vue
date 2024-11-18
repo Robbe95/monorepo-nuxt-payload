@@ -10,14 +10,14 @@ import {
 import { computed, ref } from 'vue'
 
 const props = withDefaults(defineProps<{
-  id: null | string
+  id: string | null
   isChevronHidden: boolean
   isDisabled: boolean
   isInvalid: boolean
   isLoading: boolean
   iconLeft: Icon | null
   iconRight: Icon | null
-  placeholder: null | string
+  placeholder: string | null
   showPlaceholderAsValue?: boolean
 }>(), {
   showPlaceholderAsValue: false,

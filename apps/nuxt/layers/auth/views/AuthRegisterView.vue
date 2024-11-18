@@ -18,7 +18,7 @@ onSubmitForm(async (data) => {
     await register.mutateAsync(data)
     hasSubmitted.value = true
   }
-  catch (error) {
+  catch {
     toast.error({
       title: t('auth.register.error_title'),
       description: t('auth.register.error_description'),

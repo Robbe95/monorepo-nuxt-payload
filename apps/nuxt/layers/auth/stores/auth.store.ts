@@ -9,12 +9,12 @@ import {
 
 export const useAuthStore = defineStore('auth', () => {
   const oAuthClient = useNuxtApp().$oAuthClient
-  const lastLoginAttemptEmail = ref<null | string>(null)
+  const lastLoginAttemptEmail = ref<string | null>(null)
   const currentUser = ref<CurrentUser | null>(null)
   const lastLoggedInUser = useCookie<CurrentUser | null>('lastLoggedInUser')
   const isAuthenticated = computed<boolean>(() => currentUser.value === null)
 
-  function setLastLoginAttemptEmail(email: null | string): void {
+  function setLastLoginAttemptEmail(email: string | null): void {
     lastLoginAttemptEmail.value = email
   }
 
@@ -22,7 +22,7 @@ export const useAuthStore = defineStore('auth', () => {
     lastLoggedInUser.value = user
   }
 
-  function getToken(): null | string {
+  function getToken(): string | null {
     return oAuthClient.getClient()?.getTokens()?.token ?? null
   }
 

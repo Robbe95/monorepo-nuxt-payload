@@ -17,7 +17,7 @@ import {
 import { ref, toRefs } from 'vue'
 
 interface RovingFocusGroupProps extends PrimitiveProps {
-  currentTabStopId?: null | string
+  currentTabStopId?: string | null
   defaultCurrentTabStopId?: string
   /**
    * The direction of navigation between items.
@@ -41,7 +41,7 @@ const props = withDefaults(defineProps<RovingFocusGroupProps>(), {
 })
 
 const emits = defineEmits<{
-  'update:currentTabStopId': [value: null | string | undefined]
+  'update:currentTabStopId': [value: string | null | undefined]
   'entryFocus': [event: Event]
 }>()
 

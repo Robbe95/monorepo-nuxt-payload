@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<{
    * The label of the radio group.
    * @default null
    */
-  label?: null | string
+  label?: string | null
   /**
    * The model value of the radio group.
    */
@@ -48,9 +48,9 @@ const emit = defineEmits<{
   'update:modelValue': [T | null]
 }>()
 
-const model = computed<null | string>({
+const model = computed<string | null>({
   get: () => props.modelValue !== null ? JSON.stringify(props.modelValue) : null,
-  set: (value: null | string) => {
+  set: (value: string | null) => {
     emit('update:modelValue', value !== null ? JSON.parse(value) as T : null)
   },
 })

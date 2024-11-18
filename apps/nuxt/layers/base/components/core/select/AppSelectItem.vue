@@ -11,7 +11,7 @@ const props = defineProps<{
   /**
    * display function for the selected value
    */
-  displayFn: (value: TValue) => null | string
+  displayFn: (value: TValue) => string | null
   item: SelectItem<TValue>
 }>()
 </script>

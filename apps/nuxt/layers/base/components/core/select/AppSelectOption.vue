@@ -13,7 +13,7 @@ import {
 import { computed } from 'vue'
 
 const props = defineProps<{
-  displayFn: (value: TValue) => null | string
+  displayFn: (value: TValue) => string | null
   item: SelectItemOption<TValue>
 }>()
 

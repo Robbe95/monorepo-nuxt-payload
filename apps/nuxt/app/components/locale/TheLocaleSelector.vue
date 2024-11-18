@@ -25,7 +25,7 @@ const dropdownItems = computed<DropdownMenuItem[]>(() => {
   <AppDropdownMenu
     :items="dropdownItems"
   >
-    <button class="text-foreground flex items-center gap-1 px-2 py-1 font-medium uppercase">
+    <button class="flex items-center gap-1 px-2 py-1 font-medium uppercase text-foreground">
       <span>
         {{ locale }}
       </span>

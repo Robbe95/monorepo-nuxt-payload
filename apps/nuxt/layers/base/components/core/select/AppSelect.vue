@@ -24,7 +24,7 @@ const props = withDefaults(
      * The id of the select.
      * @default null
      */
-    id?: null | string
+    id?: string | null
     /**
      * Whether the select chevron is hidden.
      */
@@ -49,7 +49,7 @@ const props = withDefaults(
     /**
      * display function for the selected value
      */
-    displayFn: (value: TValue) => null | string
+    displayFn: (value: TValue) => string | null
     /**
      * The icon to display on the left side of the select.
      */
@@ -61,11 +61,11 @@ const props = withDefaults(
     /**
      * The placeholder of the select.
      */
-    placeholder?: null | string
+    placeholder?: string | null
     /**
      * The class to apply to the select trigger.
      */
-    selectTriggerClass?: null | string
+    selectTriggerClass?: string | null
   }>(),
   {
     id: null,

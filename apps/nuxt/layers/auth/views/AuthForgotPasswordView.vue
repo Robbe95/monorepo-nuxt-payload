@@ -33,7 +33,7 @@ onSubmitForm(async (values) => {
       description: t('auth.forgot_password.success_description'),
     })
   }
-  catch (error) {
+  catch {
     toast.error({
       title: t('auth.forgot_password.error_title'),
       description: t('auth.forgot_password.error_description'),

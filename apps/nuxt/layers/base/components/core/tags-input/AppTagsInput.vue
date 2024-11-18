@@ -8,11 +8,11 @@ import {
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<{
-  id?: null | string
+  id?: string | null
   isDisabled?: boolean
   isInvalid?: boolean
-  max?: null | number
-  placeholder?: null | string
+  max?: number | null
+  placeholder?: string | null
 }>(), {
   id: null,
   isDisabled: false,

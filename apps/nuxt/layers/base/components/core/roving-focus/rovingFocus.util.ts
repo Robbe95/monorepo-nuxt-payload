@@ -22,12 +22,14 @@ export function getDirectionAwareKey(key: string, dir?: Direction): string {
   if (dir !== 'rtl') {
     return key
   }
+  if (key === 'ArrowLeft') {
+    return 'ArrowRight'
+  }
+  if (key === 'ArrowRight') {
+    return 'ArrowLeft'
+  }
 
-  return key === 'ArrowLeft'
-    ? 'ArrowRight'
-    : key === 'ArrowRight'
-      ? 'ArrowLeft'
-      : key
+  return key
 }
 
 type FocusIntent = 'first' | 'last' | 'next' | 'prev'

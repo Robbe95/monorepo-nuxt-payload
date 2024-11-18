@@ -22,7 +22,7 @@ const props = withDefaults(
 
       <AppText
         v-if="props.description !== null"
-        class="text-muted-foreground mt-1"
+        class="mt-1 text-muted-foreground"
         variant="subtext"
       >
         {{ props.description }}

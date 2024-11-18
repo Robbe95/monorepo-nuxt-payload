@@ -55,7 +55,7 @@ const props = withDefaults(
      * The placeholder of the input.
      * @default null
      */
-    placeholder?: null | string
+    placeholder?: string | null
   }>(),
   {
     isDisabled: false,
@@ -67,14 +67,14 @@ const props = withDefaults(
 )
 
 const countries = getCountries()
-const model = defineModel<null | string>({
+const model = defineModel<string | null>({
   required: true,
 })
 
 const countryCodeModel = ref<CountryCode | null>(getCountryCodeFromPhoneNumber(model.value))
-const numberModel = ref<null | string>(getNumberFromModel())
+const numberModel = ref<string | null>(getNumberFromModel())
 
-const fullNumber = computed<null | string>(() => {
+const fullNumber = computed<string | null>(() => {
   if (numberModel.value === null || countryCodeModel.value === null) {
     return null
   }
@@ -95,7 +95,7 @@ watch(
   },
 )
 
-function getNumberFromModel(): null | string {
+function getNumberFromModel(): string | null {
   if (model.value === null || countryCodeModel.value === null) {
     return null
   }
@@ -105,7 +105,7 @@ function getNumberFromModel(): null | string {
   return model.value.replace(`+${getCountryCodeCallingCode}`, '')
 }
 
-const countryCodeDialCodeModel = computed<null | string>(() => {
+const countryCodeDialCodeModel = computed<string | null>(() => {
   if (countryCodeModel.value === null) {
     return null
   }
@@ -113,7 +113,7 @@ const countryCodeDialCodeModel = computed<null | string>(() => {
   return getCountryCallingCode(countryCodeModel.value)
 })
 
-const mask = computed<null | string>(() => {
+const mask = computed<string | null>(() => {
   if (model.value === null) {
     return '###'
   }
@@ -133,7 +133,7 @@ const mask = computed<null | string>(() => {
   return getMaskFromExampleNumber(exampleNumber)
 })
 
-const countryFlagUrl = computed<null | string>(() => {
+const countryFlagUrl = computed<string | null>(() => {
   if (countryCodeModel.value === null) {
     return null
   }
@@ -149,7 +149,7 @@ const countryCodes = computed<SelectItem<CountryCode>[]>(() => {
   }))
 })
 
-function getExamplePhoneNumberByCountry(countryCode: CountryCode): null | string {
+function getExamplePhoneNumberByCountry(countryCode: CountryCode): string | null {
   const exampleNumber = getExampleNumber(countryCode, examples)
 
   return exampleNumber?.formatInternational() ?? null
@@ -168,7 +168,7 @@ function getMaskFromExampleNumber(exampleNumber: string): string {
     .trim()
 }
 
-function getCountryCodeFromPhoneNumber(phoneNumber: null | string): CountryCode | null {
+function getCountryCodeFromPhoneNumber(phoneNumber: string | null): CountryCode | null {
   if (phoneNumber === null) {
     return null
   }

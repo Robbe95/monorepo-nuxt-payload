@@ -7,7 +7,7 @@ import { computed, ref } from 'vue'
 import type { z } from 'zod'
 
 const props = withDefaults(defineProps<{
-  formId?: null | string
+  formId?: string | null
   isAlwaysEnabled?: boolean
   isDisabled?: boolean
   isKeyboardCommandDisabled?: boolean

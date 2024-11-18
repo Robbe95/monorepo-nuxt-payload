@@ -5,7 +5,7 @@ import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
   form: Form<typeof forgotPasswordFormSchema>
-  lastLoginAttemptEmail: null | string
+  lastLoginAttemptEmail: string | null
 }>()
 
 const { t } = useI18n()

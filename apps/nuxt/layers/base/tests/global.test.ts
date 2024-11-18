@@ -1,5 +1,11 @@
-import { expect, it } from 'vitest'
+import {
+  describe,
+  expect,
+  it,
+} from 'vitest'
 
-it('a test runs', () => {
-  expect(true).toBe(true)
+describe('global', () => {
+  it('a test runs', () => {
+    expect(true).toBeTruthy()
+  })
 })

@@ -47,7 +47,7 @@ const props = withDefaults(
      * The placeholder of the input.
      * @default null
      */
-    placeholder?: null | string
+    placeholder?: string | null
     /**
      * The type of the input.
      * @default 'text'
@@ -66,7 +66,7 @@ const props = withDefaults(
   },
 )
 
-const model = defineModel<null | string>({
+const model = defineModel<string | null>({
   required: true,
 })
 

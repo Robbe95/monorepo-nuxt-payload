@@ -6,7 +6,7 @@ const props = defineProps<{
   variant?: 'default' | 'white'
 }>()
 
-const amount = defineModel<null | number>({
+const amount = defineModel<number | null>({
   required: true,
 })
 
@@ -32,7 +32,7 @@ function decrement() {
   amount.value--
 }
 
-const amountNumber = computed<null | number | string>({
+const amountNumber = computed<number | string | null>({
   get() {
     return amount.value ?? null
   },

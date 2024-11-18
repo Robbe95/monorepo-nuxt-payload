@@ -3,7 +3,7 @@ import { twMerge } from '@base/libs/twMerge.lib'
 import type { ComponentInstance } from 'vue'
 
 const props = defineProps<{
-  as?: ComponentInstance<any> | string
+  as?: string | ComponentInstance<any>
 }>()
 
 const attrs = useAttrs()

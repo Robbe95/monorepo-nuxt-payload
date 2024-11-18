@@ -4,7 +4,7 @@ import { OrderService } from '@cart/api/order/services/order.service'
 import type { OrderIndex } from '@cart/models/order/index/orderIndex.model'
 import { useInfiniteQuery } from '@tanstack/vue-query'
 
-export function useOrdersInfinite(search: Ref<null | string>) {
+export function useOrdersInfinite(search: Ref<string | null>) {
   const convertedSearch = computed<string>(() => search.value ?? '')
 
   return useInfiniteQuery({

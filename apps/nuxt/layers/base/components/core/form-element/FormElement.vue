@@ -26,7 +26,7 @@ const props = defineProps<{
   /**
    * The label of the input.
    */
-  label: null | string
+  label: string | null
 }>()
 
 const inputId = useId(null, 'input')

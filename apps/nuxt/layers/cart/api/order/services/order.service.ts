@@ -9,7 +9,7 @@ import type { OrderIndex } from '@cart/models/order/index/orderIndex.model'
 import type { OrderUuid } from '@cart/models/order/orderUuid.model'
 
 export class OrderService {
-  static async getAll(_page: number, _search?: null | string): Promise<PaginatedApiData<OrderIndex>> {
+  static async getAll(_page: number, _search?: string | null): Promise<PaginatedApiData<OrderIndex>> {
     // const api = useApi()
     // const response = await api.get({
     //   config: {

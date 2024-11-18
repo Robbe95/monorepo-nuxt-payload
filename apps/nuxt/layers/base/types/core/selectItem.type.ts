@@ -1,7 +1,7 @@
-export type AcceptableValue = Record<string, any>
-  | boolean
+export type AcceptableValue = boolean
   | number
   | string
+  | Record<string, any>
 
 export interface SelectItemDivider {
   type: 'divider'

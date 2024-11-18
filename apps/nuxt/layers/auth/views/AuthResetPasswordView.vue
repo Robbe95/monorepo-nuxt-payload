@@ -47,7 +47,7 @@ onSubmitForm(async (values) => {
 
     hasPasswordBeenReset.value = true
   }
-  catch (error) {
+  catch {
     // TODO: handle error
   }
 })

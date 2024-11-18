@@ -69,13 +69,11 @@ export class TokenStore {
         }
 
         resolve()
+      }).catch(() => {
+        reject(new Error('Failed to refresh access token'))
+      }).finally(() => {
+        this._promise = null
       })
-        .catch(() => {
-          reject(new Error('Failed to refresh access token'))
-        })
-        .finally(() => {
-          this._promise = null
-        })
     })
 
     return this._promise

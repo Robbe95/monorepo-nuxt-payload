@@ -5,11 +5,25 @@ import { computed, type ComputedRef } from 'vue'
 interface UseComboboxParams {
   isLoading: ComputedRef<boolean>
   items: ComputedRef<ComboboxItem<AcceptableValue>[]>
-  search: ComputedRef<null | string>
+  search: ComputedRef<string | null>
 }
 
 interface UseComboboxReturnType {
   canOpenDropdown: ComputedRef<boolean>
+}
+
+function hasOptions(items: ComboboxItem<AcceptableValue>[]): boolean {
+  for (const item of items) {
+    if (item.type === 'option') {
+      return true
+    }
+
+    if (item.type === 'group' && hasOptions(item.items)) {
+      return true
+    }
+  }
+
+  return false
 }
 
 export function useCombobox(params: UseComboboxParams): UseComboboxReturnType {
@@ -27,20 +41,6 @@ export function useCombobox(params: UseComboboxParams): UseComboboxReturnType {
     // Otherwise, the dropdown cannot be opened
     return false
   })
-
-  function hasOptions(items: ComboboxItem<AcceptableValue>[]): boolean {
-    for (const item of items) {
-      if (item.type === 'option') {
-        return true
-      }
-
-      if (item.type === 'group' && hasOptions(item.items)) {
-        return true
-      }
-    }
-
-    return false
-  }
 
   return {
     canOpenDropdown,

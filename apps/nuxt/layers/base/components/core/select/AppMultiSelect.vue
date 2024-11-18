@@ -22,7 +22,7 @@ const props = withDefaults(
     /**
      * The id of the select.
      */
-    id?: null | string
+    id?: string | null
     /**
      * Whether the select is disabled.
      * @default false
@@ -59,7 +59,7 @@ const props = withDefaults(
      * The placeholder text to display when the select is empty.
      * @default null
      */
-    placeholder?: null | string
+    placeholder?: string | null
     /**
      * The props of the popover.
      * @default null
@@ -90,7 +90,7 @@ const model = computed<TValue[]>({
   },
 })
 
-const placeholderValue = computed<null | string>(() => {
+const placeholderValue = computed<string | null>(() => {
   if (model.value.length === 0) {
     return props.placeholder
   }

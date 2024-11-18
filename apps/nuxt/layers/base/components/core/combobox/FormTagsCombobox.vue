@@ -31,7 +31,7 @@ const props = withDefaults(
      * The text to display when there are no options.
      * @default t('components.combobox.empty')
      */
-    emptyText?: null | string
+    emptyText?: string | null
     /**
      * The errors associated with the combobox.
      */
@@ -51,12 +51,12 @@ const props = withDefaults(
     /**
      * The maximum number of tags that can be selected.
      */
-    max?: null | number
+    max?: number | null
     /**
      * The placeholder of the combobox.
      * @default null
      */
-    placeholder?: null | string
+    placeholder?: string | null
   }>(),
   {
     isDisabled: false,
@@ -78,7 +78,7 @@ const model = defineModel<TValue[]>({
   required: true,
 })
 
-const search = defineModel<null | string>('search', {
+const search = defineModel<string | null>('search', {
   default: '',
   required: false,
 })

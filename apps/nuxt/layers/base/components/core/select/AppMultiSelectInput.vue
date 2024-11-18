@@ -10,13 +10,13 @@ import {
 import { computed, ref } from 'vue'
 
 const props = withDefaults(defineProps<{
-  id: null | string
+  id: string | null
   isDisabled: boolean
   isEmpty: boolean
   isInvalid: boolean
   isLoading: boolean
   iconLeft: Icon | null
-  placeholder: null | string
+  placeholder: string | null
 }>(), {})
 
 const emit = defineEmits<{

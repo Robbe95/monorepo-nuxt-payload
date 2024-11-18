@@ -3,7 +3,7 @@ import { createContext } from 'radix-vue'
 import type { Ref } from 'vue'
 
 interface RovingContext {
-  currentTabStopId: Ref<null | string | undefined>
+  currentTabStopId: Ref<string | null | undefined>
   dir: Ref<Direction>
   loop: Ref<boolean>
   orientation: Ref<Orientation | undefined>

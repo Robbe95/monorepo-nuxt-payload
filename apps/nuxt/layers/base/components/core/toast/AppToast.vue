@@ -11,7 +11,7 @@ import { computed, toValue } from 'vue'
 const props = withDefaults(defineProps<{
   title: string
   action?: ToastAction | null
-  description?: null | string
+  description?: string | null
   icon: Icon
   type: ToastType
 }>(), {

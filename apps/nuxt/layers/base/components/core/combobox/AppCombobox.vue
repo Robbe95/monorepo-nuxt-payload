@@ -28,7 +28,7 @@ const props = withDefaults(
     /**
      * The html id of the combobox.
      */
-    id?: null | string
+    id?: string | null
     /**
      * Whether to show the search input in the dropdown instead of inline.
      * @default false
@@ -62,7 +62,7 @@ const props = withDefaults(
      * The text to display when there are no options.
      * @default t('components.combobox.empty')
      */
-    emptyText?: null | string
+    emptyText?: string | null
     /**
      * The function to filter the options.
      */
@@ -89,7 +89,7 @@ const props = withDefaults(
      * The placeholder text to display when the combobox is empty.
      * @default null
      */
-    placeholder?: null | string
+    placeholder?: string | null
     /**
      * The props of the popover.
      * @default null
@@ -116,7 +116,7 @@ const emit = defineEmits<{
   'update:modelValue': [value: TValue | null]
 }>()
 
-const searchModel = defineModel<null | string>('search', {
+const searchModel = defineModel<string | null>('search', {
   default: '',
   required: false,
 })
@@ -145,10 +145,10 @@ const search = computed<string | undefined>({
 const { canOpenDropdown } = useCombobox({
   isLoading: computed<boolean>(() => props.isLoading),
   items: computed<ComboboxItem<TValue>[]>(() => props.items),
-  search: computed<null | string>(() => searchModel.value),
+  search: computed<string | null>(() => searchModel.value),
 })
 
-const placeholderValue = computed<null | string>(() => {
+const placeholderValue = computed<string | null>(() => {
   if (model.value === undefined) {
     return props.placeholder
   }

@@ -60,7 +60,7 @@ async function onUpdateProduct(amount: number) {
 
 <template>
   <div
-    class="rounded-button relative bg-neutral-100 p-3"
+    class="relative rounded-button bg-neutral-100 p-3"
   >
     <div
       class="flex w-80 items-center justify-between gap-4"
@@ -82,7 +82,7 @@ async function onUpdateProduct(amount: number) {
         {{ formatPrice(totalPrice) }}
       </AppText>
     </div>
-    <AppDivider class="bg-primary/10 my-2" />
+    <AppDivider class="my-2 bg-primary/10" />
     <CartHeaderActions
       v-model:amount="amount"
       :is-removing="isRemoving"

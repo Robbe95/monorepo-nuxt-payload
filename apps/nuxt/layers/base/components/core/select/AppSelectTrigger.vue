@@ -4,7 +4,7 @@ import { SelectTrigger } from 'radix-vue'
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<{
-  id?: null | string
+  id?: string | null
   isDisabled?: boolean
   isInvalid?: boolean
 }>(), {

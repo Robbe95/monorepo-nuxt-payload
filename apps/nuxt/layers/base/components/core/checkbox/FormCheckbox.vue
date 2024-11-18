@@ -10,11 +10,11 @@ import {
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<{
-  id?: null | string
+  id?: string | null
   isDisabled?: boolean
   isIndeterminate?: boolean
   isInvalid?: boolean
-  label?: null | string
+  label?: string | null
 }>(), {
   id: null,
   isDisabled: false,
@@ -40,7 +40,7 @@ const checkboxIndicatorClasses = computed<string>(() => checkboxStyle.indicator(
 
 const id = props.id ?? useId()
 
-const computedModel = computed<'indeterminate' | boolean>({
+const computedModel = computed<boolean | 'indeterminate'>({
   get() {
     if (model.value) {
       return true

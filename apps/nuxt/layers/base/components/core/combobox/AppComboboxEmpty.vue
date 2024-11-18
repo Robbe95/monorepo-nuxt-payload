@@ -4,7 +4,7 @@ import { ComboboxEmpty } from 'radix-vue'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
-  emptyText: null | string
+  emptyText: string | null
 }>()
 
 const { t } = useI18n()

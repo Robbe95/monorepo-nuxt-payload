@@ -6,7 +6,7 @@ defineProps<{
 const emits = defineEmits<{
   remove: []
 }>()
-const amount = defineModel<null | number>('amount', {
+const amount = defineModel<number | null>('amount', {
   required: true,
 })
 

@@ -52,7 +52,7 @@ const props = withDefaults(
      * The text to display when there are no options.
      * @default t('components.combobox.empty')
      */
-    emptyText?: null | string
+    emptyText?: string | null
     /**
      * The function to filter the options.
      */
@@ -65,7 +65,7 @@ const props = withDefaults(
      * The placeholder text to display when the combobox is empty.
      * @default null
      */
-    placeholder?: null | string
+    placeholder?: string | null
     /**
      * The props to pass to the popover.
      */
@@ -89,7 +89,7 @@ const model = defineModel<TValue[]>({
   required: true,
 })
 
-const searchModel = defineModel<null | string>('search', {
+const searchModel = defineModel<string | null>('search', {
   default: '',
   required: false,
 })
@@ -111,7 +111,7 @@ const tagsInputRootRef = ref<ComponentExposed<typeof TagsInputRoot> | null>(null
 const { canOpenDropdown } = useCombobox({
   isLoading: computed<boolean>(() => props.isLoading),
   items: computed<ComboboxItem<TValue>[]>(() => props.items),
-  search: computed<null | string>(() => searchModel.value),
+  search: computed<string | null>(() => searchModel.value),
 })
 
 const search = computed<string | undefined>({
