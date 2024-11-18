@@ -1,3 +1,4 @@
+import { ENV } from '@payload/env'
 import { cookies } from 'next/headers'
 
 export interface AuthResponse {
@@ -13,6 +14,14 @@ export interface AuthData {
   accessToken: string
   refreshToken: string
 }
+
+export const DEFAULT_SCOPES: string[] = [
+  'openid',
+  'profile',
+  'email',
+  'offline_access',
+  `urn:zitadel:iam:org:id:${ENV.AUTH_ORGANIZATION_ID}`,
+]
 
 export async function setAuthCookie(authResponse: AuthResponse) {
   const cookieStore = await cookies()

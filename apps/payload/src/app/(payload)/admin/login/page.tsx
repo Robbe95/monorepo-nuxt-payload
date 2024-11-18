@@ -1,15 +1,10 @@
+import { DEFAULT_SCOPES } from "@payload/auth/authData";
 import LoginButton from "@payload/components/auth/LoginButton";
 import { ENV } from '@payload/env'
 import { cookies } from "next/headers";
 
 
-const DEFAULT_SCOPES: string[] = [
-  'openid',
-  'profile',
-  'email',
-  'offline_access',
-  `urn:zitadel:iam:org:id:${ENV.AUTH_ORGANIZATION_ID}`,
-]
+
 
 async function getLoginUrl(): Promise<string> {
   const cookiesStore = await cookies()

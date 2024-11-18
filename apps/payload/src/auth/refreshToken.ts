@@ -1,5 +1,9 @@
 import type { AuthResponse } from '@payload/auth/authData'
-import { getAuthData, setAuthCookie } from '@payload/auth/authData'
+import {
+  DEFAULT_SCOPES,
+  getAuthData,
+  setAuthCookie,
+} from '@payload/auth/authData'
 import { ENV } from '@payload/env'
 
 export async function refreshToken() {
@@ -13,8 +17,8 @@ export async function refreshToken() {
     body: new URLSearchParams({
       client_id: ENV.AUTH_CLIENT_ID,
       grant_type: 'refresh_token',
-      redirect_uri: 'http://localhost:5173/auth/callback',
       refresh_token: authData.refreshToken,
+      scopes: DEFAULT_SCOPES.join(' '),
     }),
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -23,8 +27,6 @@ export async function refreshToken() {
   })
 
   const data = await response.json() as AuthResponse
-
-  console.log('data', data)
 
   await setAuthCookie(data)
 }
