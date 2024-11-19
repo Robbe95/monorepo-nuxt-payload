@@ -31,6 +31,7 @@ const { data } = useLivePreview({
 </script>
 
 <template>
+  <!-- <DropdownMenuRoot v-model:open="isOpen"> -->
   <div class="w-full">
     <NotFoundView v-if="!data" />
     <PagesPage
@@ -38,4 +39,5 @@ const { data } = useLivePreview({
       :page="data"
     />
   </div>
+  <!-- </DropdownMenuRoot> -->
 </template>

@@ -6,17 +6,17 @@ export default defineNuxtConfig({
     },
   ],
   css: [
-    '@base/assets/styles/main.scss',
+    '@base/assets/styles/index.scss',
   ],
   experimental: {
     viewTransition: true,
   },
   modules: [
     '@nuxtjs/i18n',
+    '@vueuse/nuxt',
     '@pinia/nuxt',
     'nuxt-time',
     '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt',
     '@nuxt/test-utils/module',
   ],
   runtimeConfig: {
