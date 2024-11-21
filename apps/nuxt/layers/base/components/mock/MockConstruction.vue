@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import AppCard from '@base/components/app/AppCard.vue'
+
 const { t } = useI18n()
 </script>
 
 <template>
-  <AppCard class="bg-neutral-200">
+  <AppCard>
     <div class="flex h-full min-h-80 flex-1 flex-col items-center justify-center gap-2">
       <p class="font-bold text-neutral-400">
         {{ t('shared.under_construction') }}

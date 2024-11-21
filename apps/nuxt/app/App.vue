@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import { VcConfigProvider } from '@wisemen/vue-core'
-import { ConfigProvider } from 'reka-ui'
+import {
+  VcConfigProvider,
+  VcDialogContainer,
+  VcThemeProvider,
+  VcToastContainer,
+} from '@wisemen/vue-core'
 
 function useIdFunction() {
   return useId()
 }
+
+const locale = useI18n().locale
 </script>
 
 <template>
@@ -12,15 +18,20 @@ function useIdFunction() {
     <div class="flex w-screen flex-1">
       <div class="w-full">
         <ConfigProvider :use-id="useIdFunction">
-          <VcConfigProvider>
-            <NuxtLoadingIndicator color="#E94935" />
-            <NuxtLayout>
-              <NuxtPage />
-            </NuxtLayout>
-            <Teleport to="#teleports">
-              <AppDialogContainer />
-              <AppToastContainer />
-            </Teleport>
+          <VcConfigProvider :locale="locale">
+            <VcThemeProvider
+              theme="light"
+              class="flex size-full flex-1 flex-col"
+            >
+              <NuxtLoadingIndicator color="#E94935" />
+              <NuxtLayout>
+                <NuxtPage />
+              </NuxtLayout>
+              <Teleport to="#teleports">
+                <VcDialogContainer />
+                <VcToastContainer />
+              </Teleport>
+            </VcThemeProvider>
           </VcConfigProvider>
         </ConfigProvider>
       </div>

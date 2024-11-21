@@ -33,7 +33,6 @@ export default async function Login() {
     <div style={{ alignItems: 'center', display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center' }}>
       <div style={{ maxWidth: '12rem', width: '100%' }}>
         <LoginButton url={url} />
-
       </div>
     </div>
   )

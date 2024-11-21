@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NavigationMenuLink } from 'radix-vue'
+import { NavigationMenuLink } from 'reka-ui'
 
 import type { NavigationLink } from '@/types/navigation/navigationLink.type'
 
@@ -19,7 +19,7 @@ t('')
     <NuxtLinkLocale
       :to="to"
       active-class="link-active"
-      class="group rounded px-1 text-subtext font-medium text-foreground focus-ring"
+      class="text-foreground focus-ring group rounded px-1 text-subtext font-medium"
     >
       <div>
         <slot />

@@ -2,7 +2,7 @@
 import {
   NavigationMenuList,
   NavigationMenuRoot,
-} from 'radix-vue'
+} from 'reka-ui'
 
 import { HEADER_LINKS } from '@/constants/header/headerLinks.constant'
 </script>

@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     },
   ],
   css: [
-    '@base/assets/styles/index.scss',
+    '@base/assets/styles/index.css',
+    '@wisemen/vue-core/style.css',
   ],
   experimental: {
     viewTransition: true,
@@ -14,6 +15,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
+    '@nuxtjs/color-mode',
     '@pinia/nuxt',
     'nuxt-time',
     '@nuxtjs/tailwindcss',
