@@ -1,4 +1,7 @@
-import { type AuthResponse, setAuthCookie } from '@payload/auth/authData'
+import {
+  type AuthResponse,
+  setAuthCookie,
+} from '@payload/auth/authData'
 import { ENV } from '@payload/env'
 import { cookies } from 'next/headers'
 

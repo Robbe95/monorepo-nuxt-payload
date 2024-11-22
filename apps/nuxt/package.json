@@ -27,6 +27,7 @@
     "@vueuse/core": "^10.11.1",
     "@vueuse/nuxt": "^11.2.0",
     "@wisemen/vue-core": "1.0.0-alpha.13",
+    "@wisemen/vue-core-auth": "/Users/robbe/work/2024/vue-core/packages/auth/wisemen-vue-core-auth-0.0.4.tgz",
     "embla-carousel": "^8.4.0",
     "embla-carousel-vue": "^8.4.0",
     "formango": "^2.0.38",

@@ -9,7 +9,6 @@ export async function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers)
   const cookieStore = await cookies()
   let authData = await getAuthData()
-  const authorization = cookieStore.get('authorization')?.value
 
   if (request.nextUrl.pathname === '/admin/login') {
     const codes = await pkceChallenge()
@@ -23,7 +22,7 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  if (authorization == null || authData == null) {
+  if (authData == null) {
     return NextResponse.next()
   }
 

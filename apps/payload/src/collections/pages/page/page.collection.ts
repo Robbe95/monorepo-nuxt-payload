@@ -1,4 +1,5 @@
 import { imageTextBlock } from '@payload/blocks/imageText.block'
+import { textBlock } from '@payload/blocks/text.block'
 import type { CollectionConfig } from 'payload'
 
 export const pageCollection: CollectionConfig = {
@@ -21,6 +22,7 @@ export const pageCollection: CollectionConfig = {
       name: 'layout',
       blocks: [
         imageTextBlock,
+        textBlock,
       ],
       minRows: 1,
       type: 'blocks',

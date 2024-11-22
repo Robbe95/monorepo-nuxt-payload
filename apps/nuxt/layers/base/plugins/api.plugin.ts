@@ -1,24 +1,40 @@
-import {
-  addAuthorizationHeader,
-  OAuth2VueClient,
-} from '@base/libs/nuxtOAuthClient.lib'
+import { useOFetchStrategy } from '@base/utils/auth/fetchStrategy'
+import { cookieTokensStrategy } from '@base/utils/auth/tokensStrategy'
+import { getEnv } from '@base/utils/env/getEnv.utils'
+import { ZitadelClient } from '@wisemen/vue-core-auth'
+import type { $Fetch, FetchOptions } from 'ofetch'
+
+export function addAuthorizationHeader(
+  token: string,
+  fetchOptions: FetchOptions,
+): FetchOptions {
+  fetchOptions.headers = {
+    ...fetchOptions.headers,
+    Authorization: `Bearer ${token}`,
+  }
+
+  return fetchOptions
+}
 
 export default defineNuxtPlugin({
-  name: 'api',
-  parallel: true,
   setup() {
-    const config = useRuntimeConfig()
+    const {
+      API_BASE_URL,
+      AUTH_BASE_URL,
+      AUTH_CLIENT_ID,
+      AUTH_ORGANIZATION_ID,
+      ENVIRONMENT,
+    } = getEnv()
 
-    const API_CLIENT_ID = config.public.apiClientId
-    const API_CLIENT_SECRET = config.public.apiClientSecret
-    const API_BASE_URL = config.public.apiBaseUrl
-    const API_AUTH_URL = config.public.apiAuthUrl
-
-    const oAuthClient = new OAuth2VueClient({
-      clientId: API_CLIENT_ID,
-      clientSecret: API_CLIENT_SECRET,
-      fetchInstance: $fetch,
-      tokenEndpoint: `${API_AUTH_URL}/token`,
+    const oAuthClient = new ZitadelClient({
+      clientId: AUTH_CLIENT_ID,
+      organizationId: AUTH_ORGANIZATION_ID,
+      baseUrl: AUTH_BASE_URL,
+      fetchStrategy: useOFetchStrategy($fetch as $Fetch),
+      loginRedirectUri: `${window.location.origin}/auth/callback`,
+      offline: ENVIRONMENT === 'e2e',
+      postLogoutRedirectUri: `${window.location.origin}/auth/logout`,
+      tokensStrategy: cookieTokensStrategy,
     })
 
     const api = $fetch.create({
@@ -28,7 +44,13 @@ export default defineNuxtPlugin({
         'Content-Type': 'application/json',
       },
       async onRequest({ options }) {
-        await addAuthorizationHeader(oAuthClient, options)
+        const token = await oAuthClient.getAccessToken()
+
+        if (token == null) {
+          return
+        }
+
+        addAuthorizationHeader(token, options)
       },
       async onResponseError({ response }) {
         const localeRoute = useLocaleRoute()

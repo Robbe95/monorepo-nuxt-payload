@@ -23,11 +23,16 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      apiClientId: '', // can be overridden by NUXT_PUBLIC_API_CLIENT_ID environment variable
-      apiAuthUrl: '', // can be overridden by NUXT_PUBLIC_API_AUTH_URL environment variable
-      apiBaseUrl: '', // can be overridden by NUXT_PUBLIC_API_BASE_URL environment variable
-      apiClientSecret: '', // can be overridden by NUXT_PUBLIC_API_CLIENT_SECRET environment variable
-      trcpBaseUrl: 'http://localhost:8000', // can be overridden by NUXT_PUBLIC_TRPC_BASE_URL environment variable
+      authAppleIdpId: '',
+      authClientId: '',
+      authGoogleIdpId: '',
+      authOrganizationId: '',
+      authProjectId: '',
+      apiBaseUrl: '',
+      authBaseUrl: '',
+      authIssuer: '',
+      authJwksEndpoint: '',
+      environment: '',
     },
   },
 })

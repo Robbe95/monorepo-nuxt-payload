@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   await loginWithCode(code)
 
   return NextResponse.redirect(
-    'http://localhost:5173/admin/dashboard',
+    'http://localhost:5173/admin',
     { status: 302 },
   )
 }

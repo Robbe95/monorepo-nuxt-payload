@@ -52,9 +52,9 @@ export interface Config {
   user: User & {
     collection: 'users';
   };
-  jobs?: {
+  jobs: {
     tasks: unknown;
-    workflows?: unknown;
+    workflows: unknown;
   };
 }
 export interface UserAuthOperations {
@@ -102,7 +102,7 @@ export interface Page {
   id: string;
   title: string;
   slug?: string | null;
-  layout?: ImageTextBlock[] | null;
+  layout?: (ImageTextBlock | TextBlock)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -117,6 +117,17 @@ export interface ImageTextBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'image-text';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextBlock".
+ */
+export interface TextBlock {
+  title: string;
+  text: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'text';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -340,6 +351,14 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               image?: T;
+              title?: T;
+              text?: T;
+              id?: T;
+              blockName?: T;
+            };
+        text?:
+          | T
+          | {
               title?: T;
               text?: T;
               id?: T;
