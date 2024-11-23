@@ -1,11 +1,10 @@
-import { AuthService } from '@auth/api/services/auth.service'
-import { AuthTransformer } from '@auth/models/auth.transformer'
-import type { CurrentUser } from '@auth/models/current-user/currentUser.model'
-import type { LoginForm } from '@auth/models/login/loginForm.model'
+import { AuthService } from '@base/modules/auth/api/services/auth.service'
 import {
   computed,
   ref,
 } from 'vue'
+
+import type { CurrentUser } from '#shared/models/current-user/currentUser.model'
 
 export const useAuthStore = defineStore('auth', () => {
   const oAuthClient = useNuxtApp().$oAuthClient
@@ -14,16 +13,24 @@ export const useAuthStore = defineStore('auth', () => {
   const lastLoggedInUser = useCookie<CurrentUser | null>('lastLoggedInUser')
   const isAuthenticated = computed<boolean>(() => currentUser.value === null)
 
+  async function getLoginUrl(): Promise<string> {
+    return await oAuthClient.getLoginUrl()
+  }
+
+  function getLogoutUrl(): string {
+    return oAuthClient.getLogoutUrl()
+  }
+
+  function setCurrentUser(user: CurrentUser | null): void {
+    currentUser.value = user
+  }
+
   function setLastLoginAttemptEmail(email: string | null): void {
     lastLoginAttemptEmail.value = email
   }
 
   function setLastLoggedInUser(user: CurrentUser | null): void {
     lastLoggedInUser.value = user
-  }
-
-  function getToken(): string | null {
-    return oAuthClient.getClient()?.getTokens()?.token ?? null
   }
 
   async function getCurrentUser(): Promise<CurrentUser> {
@@ -36,16 +43,6 @@ export const useAuthStore = defineStore('auth', () => {
     return currentUser.value
   }
 
-  function setCurrentUser(user: CurrentUser | null): void {
-    currentUser.value = user
-  }
-
-  async function login(data: LoginForm): Promise<void> {
-    const { password, username } = AuthTransformer.toLoginDto(data)
-
-    await oAuthClient.login(username, password)
-  }
-
   async function logout(): Promise<void> {
     const router = useRouter()
     const localeRoute = useLocaleRoute()
@@ -54,25 +51,27 @@ export const useAuthStore = defineStore('auth', () => {
     oAuthClient.logout()
     setCurrentUser(null)
 
-    if (localeAuthRoute?.path != null) {
-      await router.push(localeAuthRoute.path)
+    if (localeAuthRoute == null) {
+      return
     }
+
+    await router.push(localeAuthRoute)
   }
 
-  async function refreshToken() {
-    await oAuthClient.getClient()?.refreshToken()
+  async function loginWithCode(code: string): Promise<void> {
+    await oAuthClient.loginWithCode(code)
   }
 
   return {
     isAuthenticated,
     currentUser,
     getCurrentUser,
-    getToken,
+    getLoginUrl,
+    getLogoutUrl,
     lastLoggedInUser,
     lastLoginAttemptEmail,
-    login,
+    loginWithCode,
     logout,
-    refreshToken,
     setCurrentUser,
     setLastLoggedInUser,
     setLastLoginAttemptEmail,

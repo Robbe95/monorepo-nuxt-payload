@@ -1,4 +1,4 @@
-import { useAuthStore } from '@auth/stores/auth.store'
+import { useAuthStore } from '@base/stores/auth.store'
 import type { AppRouter } from '@payload/trpc/router/router'
 import {
   createTRPCProxyClient,

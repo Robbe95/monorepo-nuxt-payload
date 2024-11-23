@@ -24,6 +24,7 @@ export default defineNuxtPlugin({
       AUTH_CLIENT_ID,
       AUTH_ORGANIZATION_ID,
       ENVIRONMENT,
+      SITE_URL,
     } = getEnv()
 
     const oAuthClient = new ZitadelClient({
@@ -31,9 +32,9 @@ export default defineNuxtPlugin({
       organizationId: AUTH_ORGANIZATION_ID,
       baseUrl: AUTH_BASE_URL,
       fetchStrategy: useOFetchStrategy($fetch as $Fetch),
-      loginRedirectUri: `${window.location.origin}/auth/callback`,
+      loginRedirectUri: `${SITE_URL}/auth/callback`,
       offline: ENVIRONMENT === 'e2e',
-      postLogoutRedirectUri: `${window.location.origin}/auth/logout`,
+      postLogoutRedirectUri: `${SITE_URL}/auth/logout`,
       tokensStrategy: cookieTokensStrategy,
     })
 

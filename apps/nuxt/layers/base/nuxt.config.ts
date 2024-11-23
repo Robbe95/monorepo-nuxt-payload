@@ -4,6 +4,11 @@ export default defineNuxtConfig({
       pathPrefix: false,
       path: '@base/components',
     },
+    {
+      pathPrefix: false,
+      path: '@base/modules',
+    },
+
   ],
   css: [
     '@base/assets/styles/index.css',
