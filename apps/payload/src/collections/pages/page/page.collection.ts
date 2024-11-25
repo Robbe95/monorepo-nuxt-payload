@@ -1,4 +1,5 @@
 import { imageTextBlock } from '@payload/blocks/imageText.block'
+import { imageTextSquareBlock } from '@payload/blocks/imageTextSquare.block'
 import { textBlock } from '@payload/blocks/text.block'
 import type { CollectionConfig } from 'payload'
 
@@ -23,7 +24,9 @@ export const pageCollection: CollectionConfig = {
       blocks: [
         imageTextBlock,
         textBlock,
+        imageTextSquareBlock,
       ],
+      localized: true,
       minRows: 1,
       type: 'blocks',
     },

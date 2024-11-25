@@ -102,7 +102,26 @@ export interface Page {
   id: string;
   title: string;
   slug?: string | null;
-  layout?: (ImageTextBlock | TextBlock)[] | null;
+  layout?:
+    | (
+        | ImageTextBlock
+        | TextBlock
+        | {
+            title: string;
+            subtitle: string;
+            callToAction: {
+              label: string;
+              link: string;
+            };
+            firstImage: string | Media;
+            text: string;
+            secondImage: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'image-text-square';
+          }
+      )[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -111,7 +130,6 @@ export interface Page {
  * via the `definition` "ImageTextBlock".
  */
 export interface ImageTextBlock {
-  image: string | Media;
   title: string;
   text: string;
   id?: string | null;
@@ -350,7 +368,6 @@ export interface PagesSelect<T extends boolean = true> {
         'image-text'?:
           | T
           | {
-              image?: T;
               title?: T;
               text?: T;
               id?: T;
@@ -361,6 +378,24 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               title?: T;
               text?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'image-text-square'?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              callToAction?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                    'info-fragment'?: T;
+                  };
+              firstImage?: T;
+              text?: T;
+              secondImage?: T;
               id?: T;
               blockName?: T;
             };
