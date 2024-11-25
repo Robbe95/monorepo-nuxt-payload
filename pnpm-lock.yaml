@@ -35,6 +35,9 @@ importers:
       '@payloadcms/live-preview':
         specifier: ^0.2.2
         version: 0.2.2
+      '@payloadcms/live-preview-vue':
+        specifier: ^3.1.0
+        version: 3.1.0(vue@3.5.13)
       '@pinia/nuxt':
         specifier: ^0.7.0
         version: 0.7.0(rollup@4.27.3)(typescript@5.6.3)(vue@3.5.13)
@@ -3975,8 +3978,21 @@ packages:
       - typescript
     dev: false
 
+  /@payloadcms/live-preview-vue@3.1.0(vue@3.5.13):
+    resolution: {integrity: sha512-BaLnCQMfiE+UI9fNCjRCVfVzjk6EK1EGWpo/VBZIDPFK7KTyR9lB93m9s6m9IZ5nyWpKMyXdEQc2CdHjM8xhcQ==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@payloadcms/live-preview': 3.1.0
+      vue: 3.5.13(typescript@5.6.3)
+    dev: false
+
   /@payloadcms/live-preview@0.2.2:
     resolution: {integrity: sha512-FOcg/HOIzzESjoT4vXgM7Pjd+bODodZTKR/pEJWsjLtyARd6NfF3MNWS+tdlfa3TOZrdT8WnHBAKsKyREyE3og==}
+    dev: false
+
+  /@payloadcms/live-preview@3.1.0:
+    resolution: {integrity: sha512-STKgNdPIaCRqbPw6u2SsGGojlCcylfiZk565pLWJvnbd6uY8/FdmMEh06MOPWBB2ejFCNB/Ox2SulhzzzbGbpA==}
     dev: false
 
   /@payloadcms/next@3.0.2(graphql@16.9.0)(monaco-editor@0.52.0)(next@15.0.2)(payload@3.0.2)(react-dom@19.0.0-rc-65a56d0e-20241020)(react@19.0.0-rc-65a56d0e-20241020)(types-react@19.0.0-rc.1)(typescript@5.6.3):

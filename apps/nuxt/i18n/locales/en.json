@@ -150,5 +150,6 @@
   "cart.products_count": "No products | \nOne product | \n{count} products",
   "cart.remove": "To delete",
   "cart.total_to_pay": "Total",
-  "seo.title.auth": "Authentication"
+  "seo.title.auth": "Authentication",
+  "cms.blocks.not_supported": "Block `{blockName}` is not supported"
 }

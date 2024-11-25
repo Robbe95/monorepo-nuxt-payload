@@ -11,14 +11,17 @@ defineProps<Props>()
 <template>
   <div class="flex flex-col gap-4">
     <template
-      v-for="block in blocks"
-      :key="block.id"
+      v-for="(block) in blocks"
+      :key="JSON.stringify(block)"
     >
       <BlocksImageText
         v-if="block.blockType === 'image-text'"
         :block="block"
       />
-      <BlocksNotSupported v-else />
+      <BlocksNotSupported
+        v-else
+        :block-name="block.blockType ?? 'Unknown'"
+      />
     </template>
   </div>
 </template>

@@ -14,6 +14,7 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+
   admin: {
     autoLogin: {
       email: 'dev@payloadcms.com',
@@ -44,6 +45,7 @@ export default buildConfig({
   collections,
   cors: [
     'http://localhost:3000',
+    'http://localhost:5173',
   ],
   db: postgresAdapter({
     idType: 'uuid',

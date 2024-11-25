@@ -5,14 +5,11 @@ export default defineNuxtConfig({
 
   alias: {
     '@@': path.resolve(__dirname, './disable'),
-    '@auth': path.resolve(__dirname, './layers/auth'),
     '@base': path.resolve(__dirname, './layers/base'),
-    '@cart': path.resolve(__dirname, './layers/cart'),
     '@cms': path.resolve(__dirname, './layers/cms'),
     '@payload': path.resolve(__dirname, '../payload/src'),
     '@payload-config': path.resolve(__dirname, '../payload/payload.config.ts'),
     '@payload-types': path.resolve(__dirname, '../payload'),
-    '@post': path.resolve(__dirname, './layers/post'),
     '@root': path.resolve(__dirname, './'),
     '~~': path.resolve(__dirname, './disable'),
   },
@@ -59,6 +56,7 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    baseUrl: 'http://localhost:3000',
     defaultLocale: 'nl',
     experimental: {
       typedOptionsAndMessages: 'default',
@@ -66,9 +64,9 @@ export default defineNuxtConfig({
     },
     langDir: 'locales',
     locales: [
-      { iso: 'en-US', code: 'en', file: 'en.json' },
-      { iso: 'nl-BE', code: 'nl', file: 'nl.json' },
-      { iso: 'fr-FR', code: 'fr', file: 'fr.json' },
+      { iso: 'en-US', code: 'en', file: 'en.json', language: 'en-US' },
+      { iso: 'nl-BE', code: 'nl', file: 'nl.json', language: 'nl-BE' },
+      { iso: 'fr-FR', code: 'fr', file: 'fr.json', language: 'fr-FR' },
     ],
     strategy: 'prefix',
   },

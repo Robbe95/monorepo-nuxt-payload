@@ -1,4 +1,5 @@
 import { useAuthStore } from '@base/stores/auth.store'
+import { getEnv } from '@base/utils/env/getEnv.utils'
 import type { AppRouter } from '@payload/trpc/router/router'
 import {
   createTRPCProxyClient,
@@ -6,12 +7,13 @@ import {
 } from '@trpc/client'
 
 export function useTrpc() {
+  const { TRPC_BASE_URL } = getEnv()
   const client = createTRPCProxyClient<AppRouter>({
     links: [
       httpBatchLink({
-        headers() {
+        async headers() {
           const authStore = useAuthStore()
-          const token = authStore.getToken()
+          const token = await authStore.getToken()
 
           if (token == null) {
             return {}
@@ -21,7 +23,7 @@ export function useTrpc() {
             Authorization: `Bearer ${token}`,
           }
         },
-        url: 'http://localhost:8000/api/trpc',
+        url: `${TRPC_BASE_URL}/api/trpc`,
       }),
     ],
   })

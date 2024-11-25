@@ -4,18 +4,25 @@ const route = useRoute()
 const { t } = useI18n()
 const head = useLocaleHead({
   dir: true,
+  lang: true,
   seo: true,
 })
 
+useHead(() => ({
+  htmlAttrs: {
+    lang: head.value.htmlAttrs!.lang,
+  },
+}))
+
 const title = computed<string>(() => t(
-  'layouts.title',
+  'base.layouts.title',
   { title: route.meta.title != null ? t(route.meta.title as string) : 'TBD' },
 ))
 </script>
 
 <template>
   <Html
-    :lang="head.htmlAttrs?.lang"
+    :lang="head.htmlAttrs!.lang"
     :dir="head.htmlAttrs?.dir"
   >
     <Head>

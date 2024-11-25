@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { getEnv } from '@base/utils/env/getEnv.utils'
 import type { ImageTextBlock } from '@payload/payload-types'
 
 interface Props {
@@ -7,14 +8,14 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const baseUrl = useNuxtApp().$config.public.trcpBaseUrl
+const { TRPC_BASE_URL } = getEnv()
 
 const imageUrl = computed<string>(() => {
   if (typeof props.block.image === 'string') {
     return props.block.image
   }
 
-  return `${baseUrl}/${props.block.image.url}`
+  return `${TRPC_BASE_URL}/${props.block.image.url}`
 })
 </script>
 
@@ -27,17 +28,16 @@ const imageUrl = computed<string>(() => {
       :src="imageUrl"
     >
     <div class="flex flex-col gap-2">
-      <AppText
-        variant="subtitle"
-        class="font-medium"
+      <p
+        class="text-subtitle font-medium"
       >
         {{ block.title }}
-      </AppText>
-      <AppText
-        variant="body"
+      </p>
+      <p
+        class="text-body"
       >
         {{ block.text }}
-      </AppText>
+      </p>
     </div>
   </div>
 </template>

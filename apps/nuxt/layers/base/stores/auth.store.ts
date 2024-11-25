@@ -62,12 +62,17 @@ export const useAuthStore = defineStore('auth', () => {
     await oAuthClient.loginWithCode(code)
   }
 
+  async function getToken(): Promise<string | null> {
+    return await oAuthClient.getAccessToken()
+  }
+
   return {
     isAuthenticated,
     currentUser,
     getCurrentUser,
     getLoginUrl,
     getLogoutUrl,
+    getToken,
     lastLoggedInUser,
     lastLoginAttemptEmail,
     loginWithCode,

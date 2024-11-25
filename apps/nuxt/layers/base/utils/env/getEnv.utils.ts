@@ -10,6 +10,7 @@ export function getEnv(): {
   AUTH_PROJECT_ID: string
   ENVIRONMENT: string
   SITE_URL: string
+  TRPC_BASE_URL: string
 } {
   const config = useRuntimeConfig()
 
@@ -25,5 +26,6 @@ export function getEnv(): {
     AUTH_PROJECT_ID: config.public.authProjectId,
     ENVIRONMENT: config.public.environment,
     SITE_URL: 'http://localhost:3000',
+    TRPC_BASE_URL: config.public.trpcBaseUrl,
   }
 }
