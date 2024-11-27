@@ -36,7 +36,7 @@ defineProps<Props>()
           />
         </div>
       </div>
-      <div class="-mt-12">
+      <div class="mt-4 lg:-mt-12">
         <div class="flex flex-col items-end justify-between gap-4 lg:flex-row">
           <CmsImage
             :image="block.secondImage"

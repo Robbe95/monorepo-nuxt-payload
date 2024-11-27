@@ -13,7 +13,7 @@ const { t } = useI18n()
 
 <template>
   <div class="relative bg-brand-primary pt-24 text-white">
-    <AppContainer class="mb-12 flex items-end justify-between">
+    <AppContainer class="mb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between">
       <div class="flex flex-col gap-8 lowercase">
         <p>
           {{ block.subtitle }}
@@ -22,8 +22,8 @@ const { t } = useI18n()
           {{ block.title }}
         </h2>
       </div>
-      <div class="flex h-full items-end justify-end">
-        <AppButtonOutlineDark>
+      <div>
+        <AppButtonOutlineDark class="w-full lg:w-auto">
           {{ t('projects.view_all') }}
         </AppButtonOutlineDark>
       </div>
