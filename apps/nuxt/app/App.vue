@@ -5,6 +5,7 @@ import {
   VcThemeProvider,
   VcToastContainer,
 } from '@wisemen/vue-core'
+import { ConfigProvider } from 'reka-ui'
 
 function useIdFunction() {
   return useId()

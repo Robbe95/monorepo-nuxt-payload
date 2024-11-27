@@ -11,17 +11,31 @@ export default defineNuxtConfig({
 
   ],
   css: [
-    '@base/assets/styles/index.css',
     '@wisemen/vue-core/style.css',
+    '@base/assets/styles/index.css',
   ],
   experimental: {
     viewTransition: true,
+  },
+  fonts: {
+    families: [
+      {
+        name: 'Kreon',
+        provider: 'local',
+        weights: [
+          300,
+          400,
+          700,
+        ],
+      },
+    ],
   },
   modules: [
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
     '@pinia/nuxt',
+    '@nuxt/fonts',
     'nuxt-time',
     '@nuxtjs/tailwindcss',
     '@nuxt/test-utils/module',

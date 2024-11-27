@@ -1,5 +1,6 @@
 import containerQueries from '@tailwindcss/container-queries'
 import type { Config } from 'tailwindcss'
+import PluginCreator from 'tailwindcss/plugin'
 
 export default {
   content: [
@@ -11,6 +12,15 @@ export default {
   darkMode: 'class',
   plugins: [
     containerQueries,
+    PluginCreator(({ addUtilities }) => {
+      addUtilities({
+        '.focus-ring': {},
+        '.ml-break-out': {},
+        '.mr-break-out': {},
+        '.mx-break-out': {},
+      })
+    }),
+
   ],
   theme: {
     extend: {
@@ -47,6 +57,7 @@ export default {
         'warning-secondary': 'var(--bg-warning-secondary)',
         'warning-solid': 'var(--bg-warning-solid)',
       },
+
       borderColor: {
         'brand': 'var(--border-brand)',
         'brand-alt': 'var(--border-brand-alt)',
@@ -147,12 +158,18 @@ export default {
         'warning-900': 'var(--warning-900)',
         'warning-950': 'var(--warning-950)',
       },
+      fontFamily: {
+        kreon: [
+          'Kreon',
+        ],
+      },
 
       fontSize: {
         title: 'var(--text-title)',
         body: 'var(--text-body)',
         caption: 'var(--text-caption)',
         heading: 'var(--text-heading)',
+        hero: 'var(--text-hero)',
         subtext: 'var(--text-subtext)',
         subtitle: 'var(--text-subtitle)',
       },

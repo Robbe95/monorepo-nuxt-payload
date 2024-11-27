@@ -9,7 +9,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <div class="flex flex-col gap-4">
-    <BlocksRenderer :blocks="page.layout" />
+  <div class="mb-24 flex flex-col gap-4">
+    <BlocksRenderer :blocks="page.blocks" />
   </div>
 </template>

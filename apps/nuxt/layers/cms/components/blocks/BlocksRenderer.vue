@@ -2,7 +2,7 @@
 import type { Page } from '@payload/payload-types'
 
 interface Props {
-  blocks: Page['layout']
+  blocks: Page['blocks']
 }
 
 defineProps<Props>()
@@ -16,6 +16,22 @@ defineProps<Props>()
     >
       <BlocksImageText
         v-if="block.blockType === 'image-text'"
+        :block="block"
+      />
+      <BlocksHero
+        v-else-if="block.blockType === 'hero'"
+        :block="block"
+      />
+      <BlocksImageTextSquare
+        v-else-if="block.blockType === 'image-text-square'"
+        :block="block"
+      />
+      <BlocksProductSelection
+        v-else-if="block.blockType === 'product-selection'"
+        :block="block"
+      />
+      <BlocksProjects
+        v-else-if="block.blockType === 'projects-block'"
         :block="block"
       />
       <BlocksNotSupported

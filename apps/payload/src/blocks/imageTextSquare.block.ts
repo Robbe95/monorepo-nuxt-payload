@@ -44,6 +44,7 @@ export const imageTextSquareBlock: Block = {
       type: 'collapsible',
     },
   ],
+  interfaceName: 'ImageTextSquareBlock',
   labels: {
     plural: 'Image Text Square Blocks',
     singular: 'Image Text Square Block',

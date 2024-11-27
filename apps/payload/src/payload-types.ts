@@ -20,6 +20,7 @@ export interface Config {
     orders: Order;
     users: User;
     addresses: Address;
+    projects: Project;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -39,6 +40,7 @@ export interface Config {
     orders: OrdersSelect<false> | OrdersSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     addresses: AddressesSelect<false> | AddressesSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -102,28 +104,23 @@ export interface Page {
   id: string;
   title: string;
   slug?: string | null;
-  layout?:
-    | (
-        | ImageTextBlock
-        | TextBlock
-        | {
-            title: string;
-            subtitle: string;
-            callToAction: {
-              label: string;
-              link: string;
-            };
-            firstImage: string | Media;
-            text: string;
-            secondImage: string | Media;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'image-text-square';
-          }
-      )[]
+  blocks?:
+    | (HeroBlock | ImageTextBlock | TextBlock | ImageTextSquareBlock | ProductSelectionBlock | ProjectsBlock)[]
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock".
+ */
+export interface HeroBlock {
+  title: string;
+  text: string;
+  backgroundImage: string | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -146,6 +143,66 @@ export interface TextBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'text';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ImageTextSquareBlock".
+ */
+export interface ImageTextSquareBlock {
+  title: string;
+  subtitle: string;
+  callToAction: {
+    label: string;
+    link: string;
+  };
+  firstImage: string | Media;
+  text: string;
+  secondImage: string | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'image-text-square';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProductSelectionBlock".
+ */
+export interface ProductSelectionBlock {
+  title: string;
+  subtitle: string;
+  products: {
+    title: string;
+    url: string;
+    productImage: string | Media;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'product-selection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectsBlock".
+ */
+export interface ProjectsBlock {
+  title: string;
+  subtitle: string;
+  projects: (string | Project)[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projects-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  title: string;
+  location: string;
+  url: string;
+  images: string | Media;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -294,6 +351,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'addresses';
         value: string | Address;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: string | Project;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -362,9 +423,18 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
-  layout?:
+  blocks?:
     | T
     | {
+        hero?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              backgroundImage?: T;
+              id?: T;
+              blockName?: T;
+            };
         'image-text'?:
           | T
           | {
@@ -396,6 +466,31 @@ export interface PagesSelect<T extends boolean = true> {
               firstImage?: T;
               text?: T;
               secondImage?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'product-selection'?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              products?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                    productImage?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'projects-block'?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              projects?: T;
               id?: T;
               blockName?: T;
             };
@@ -494,6 +589,18 @@ export interface AddressesSelect<T extends boolean = true> {
   email?: T;
   phone?: T;
   type?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  title?: T;
+  location?: T;
+  url?: T;
+  images?: T;
   updatedAt?: T;
   createdAt?: T;
 }

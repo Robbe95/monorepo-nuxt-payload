@@ -151,5 +151,7 @@
   "app.footer.service": "Service",
   "app.footer.links": "Links",
   "app.todo.logo": "TODO logo",
-  "cms.blocks.not_supported": "Block `{blockName}` is not supported "
+  "cms.blocks.not_supported": "Block `{blockName}` is not supported ",
+  "app.header.compatible_with_vektron": "Compatible plafonds van vektron",
+  "projects.view_all": "al onze projecten"
 }
