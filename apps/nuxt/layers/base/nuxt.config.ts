@@ -13,14 +13,22 @@ export default defineNuxtConfig({
   css: [
     '@wisemen/vue-core/style.css',
     '@base/assets/styles/index.css',
+    '@base/assets/styles/colors.css',
+    '@base/assets/styles/variables.css',
+    '@base/assets/styles/fonts.css',
   ],
   experimental: {
     viewTransition: true,
   },
   fonts: {
+    experimental: {
+      processCSSVariables: true,
+    },
     families: [
       {
         name: 'Kreon',
+        global: true,
+        preload: true,
         provider: 'local',
         weights: [
           300,
@@ -28,6 +36,7 @@ export default defineNuxtConfig({
           700,
         ],
       },
+
     ],
   },
   modules: [

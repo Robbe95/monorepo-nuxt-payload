@@ -1,5 +1,6 @@
 import containerQueries from '@tailwindcss/container-queries'
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 import PluginCreator from 'tailwindcss/plugin'
 
 export default {
@@ -161,6 +162,7 @@ export default {
       fontFamily: {
         kreon: [
           'Kreon',
+          ...defaultTheme.fontFamily.sans,
         ],
       },
 

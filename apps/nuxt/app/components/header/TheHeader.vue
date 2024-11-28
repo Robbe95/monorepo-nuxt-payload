@@ -23,6 +23,9 @@ const { t } = useI18n()
       <div class="container mx-auto px-4">
         <div class="flex items-center justify-between text-white lg:grid lg:grid-cols-3 lg:items-center lg:justify-center">
           <HeaderLogo />
+          <NuxtLinkLocale to="/home">
+            Testgo home
+          </NuxtLinkLocale>
         </div>
       </div>
     </div>

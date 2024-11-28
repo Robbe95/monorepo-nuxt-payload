@@ -1,5 +1,5 @@
-import { useAuthStore } from '@auth/stores/auth.store'
 import { useGlobalI18n } from '@base/composables/i18n/useGlobaI18n'
+import { useAuthStore } from '@base/stores/auth.store'
 import { defineNuxtRouteMiddleware } from 'nuxt/app'
 
 export default defineNuxtRouteMiddleware(async () => {

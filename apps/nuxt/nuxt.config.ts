@@ -51,15 +51,6 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
-  fonts: {
-    families: [
-      {
-        name: 'Kreon',
-        provider: 'local',
-      },
-    ],
-  },
-
   future: {
     compatibilityVersion: 4,
   },
