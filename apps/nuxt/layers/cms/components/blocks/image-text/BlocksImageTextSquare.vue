@@ -12,7 +12,7 @@ defineProps<Props>()
 <template>
   <BlocksContainer theme="light">
     <AppContainer>
-      <div class="grid grid-cols-[0.6fr,0.4fr] justify-between gap-4 lg:flex-row">
+      <div class="grid justify-between gap-4 lg:grid-cols-[0.6fr,0.4fr] ">
         <div class="flex flex-col gap-8">
           <p class="text-subtext lowercase">
             {{ block.subtitle }}
@@ -37,7 +37,7 @@ defineProps<Props>()
         </div>
       </div>
       <div class="mt-4 w-full lg:-mt-12">
-        <div class="grid w-full grid-cols-[0.6fr,0.4fr] items-end justify-between gap-4  lg:flex-row">
+        <div class="grid w-full items-end justify-between gap-4 lg:grid-cols-[0.6fr,0.4fr]">
           <CmsImage
             :image="block.secondImage"
             class="w-full bg-cover"
