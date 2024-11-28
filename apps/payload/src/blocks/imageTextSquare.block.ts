@@ -44,6 +44,7 @@ export const imageTextSquareBlock: Block = {
       type: 'collapsible',
     },
   ],
+  imageURL: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTMgNGgxN3YxN0gzem0xIDF2MTVoMTVWNXoiLz48L3N2Zz4=',
   interfaceName: 'ImageTextSquareBlock',
   labels: {
     plural: 'Image Text Square Blocks',

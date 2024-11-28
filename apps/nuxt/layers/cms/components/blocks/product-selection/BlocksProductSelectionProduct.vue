@@ -14,13 +14,17 @@ const props = defineProps<Props>()
 const cursorElement = useTemplateRef<HTMLElement>('cursor-element')
 const productElement = useTemplateRef<HTMLElement>('product-element')
 
-// eslint-disable-next-line func-style
-const extractor: UseMouseEventExtractor = (event: any) => {
+function extractor(event: MouseEvent | Touch): ReturnType<UseMouseEventExtractor> {
+  if (event instanceof Touch) {
+    return
+  }
+
   return [
     event.offsetX,
     event.offsetY,
   ]
 }
+
 const mousePosition = useMouse({
   target() {
     return productElement.value

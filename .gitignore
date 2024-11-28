@@ -6,7 +6,6 @@
 .cache
 .turbo
 dist
-images
 
 # Node dependencies
 node_modules
