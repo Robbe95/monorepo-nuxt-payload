@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 import collections from '@payload/collections/collections'
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
 import { en } from 'payload/i18n/en'
@@ -70,21 +71,30 @@ export default buildConfig({
       'nl',
     ],
   },
-  plugins: [],
-  secret: process.env.PAYLOAD_SECRET ?? '',
+  plugins: [
+    seoPlugin({
+      collections: [
+        'pages',
+      ],
+      generateDescription: ({ doc }) => doc.excerpt,
+      generateTitle: ({ doc }) => `Website.com — ${doc.title}`,
+      tabbedUI: true,
+      uploadsCollection: 'images',
+    }),
+  ],
 
+  secret: process.env.PAYLOAD_SECRET ?? '',
   // for this before reaching 3.0 stable
   sharp,
+  // Sharp is now an optional dependency -
+  // if you want to resize images, crop, set focal point, etc.
+  // make sure to install it and pass it to the config.
+  // This is temporary - we may make an adapter pattern
+
   typescript: {
     autoGenerate: true,
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  // Sharp is now an optional dependency -
-  // if you want to resize images, crop, set focal point, etc.
-  // make sure to install it and pass it to the config.
-
-  // This is temporary - we may make an adapter pattern
-
   async onInit(payload) {
     const existingUsers = await payload.find({
       collection: 'users',
@@ -102,4 +112,5 @@ export default buildConfig({
       })
     }
   },
+
 })

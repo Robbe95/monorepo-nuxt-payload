@@ -10,9 +10,9 @@ defineProps<Props>()
 </script>
 
 <template>
-  <BlockContainer theme="light">
+  <BlocksContainer theme="light">
     <AppContainer>
-      <div class="flex flex-col justify-between gap-4 lg:flex-row">
+      <div class="grid grid-cols-[0.6fr,0.4fr] justify-between gap-4 lg:flex-row">
         <div class="flex flex-col gap-8">
           <p class="text-subtext lowercase">
             {{ block.subtitle }}
@@ -32,21 +32,21 @@ defineProps<Props>()
         <div>
           <CmsImage
             :image="block.firstImage"
-            class="w-full bg-cover lg:size-[480px]"
+            class="aspect-square w-full bg-cover"
           />
         </div>
       </div>
-      <div class="-mt-12">
-        <div class="flex flex-col items-end justify-between gap-4 lg:flex-row">
+      <div class="mt-4 w-full lg:-mt-12">
+        <div class="grid w-full grid-cols-[0.6fr,0.4fr] items-end justify-between gap-4  lg:flex-row">
           <CmsImage
             :image="block.secondImage"
-            class="w-full bg-cover lg:w-1/2"
+            class="w-full bg-cover"
           />
-          <p class="text-subtext lg:max-w-[40ch]">
+          <p class="text-end text-subtext lg:max-w-[40ch]">
             {{ block.text }}
           </p>
         </div>
       </div>
     </AppContainer>
-  </BlockContainer>
+  </BlocksContainer>
 </template>

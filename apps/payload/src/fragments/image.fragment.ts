@@ -11,7 +11,7 @@ export function getImageFragment({ name, label }: GetImageFragmentOptions): Uplo
   return {
     name,
     label,
-    relationTo: 'media',
+    relationTo: 'images',
     required: true,
     type: 'upload',
   }

@@ -11,7 +11,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <BlockContainer theme="light">
+  <BlocksContainer theme="light">
     <AppContainer>
       <div class="flex flex-col gap-8">
         <div class="flex flex-col items-center gap-6">
@@ -32,21 +32,11 @@ defineProps<Props>()
           :key="index"
           class="flex-none basis-full snap-start p-2 sm:basis-1/2 lg:basis-auto"
         >
-          <!-- TODO: Can this be fixed? -->
-          <NuxtLinkLocale
-            :to="product.url as any"
-            class="focus-ring-black flex flex-col gap-4"
-          >
-            <CmsImage
-              :image="product.productImage"
-              class="lg:size-[300px] lg:flex-none"
-            />
-            <span>
-              {{ product.title }}
-            </span>
-          </NuxtLinkLocale>
+          <BlocksProductSelectionProduct
+            :product="product"
+          />
         </div>
       </div>
     </div>
-  </BlockContainer>
+  </BlocksContainer>
 </template>

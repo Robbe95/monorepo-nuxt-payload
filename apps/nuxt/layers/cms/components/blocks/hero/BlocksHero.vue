@@ -11,12 +11,16 @@ defineProps<Props>()
 <template>
   <div
     v-if="block.blockType === 'hero'"
-    class="flex min-h-screen flex-1 flex-col items-center justify-center bg-brand-primary"
+    class="flex h-dvh flex-col items-center justify-center bg-brand-primary"
   >
-    <CmsImage
-      :image="block.backgroundImage"
-      class="size-full flex-1 object-cover"
-    />
+    <div class="w-full flex-1 overflow-hidden">
+      <CmsImage
+        v-if="(typeof block.backgroundImage !== 'string')"
+        :image="block.backgroundImage"
+        class="object-cover"
+      />
+    </div>
+
     <div class="w-full bg-brand-primary py-12 text-brand-primary">
       <div class="container mx-auto flex flex-col px-4 py-1">
         <div class="grid items-center justify-center gap-2 lg:grid-cols-[0.6fr,0.4fr]">

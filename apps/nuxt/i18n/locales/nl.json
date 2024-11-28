@@ -153,5 +153,7 @@
   "app.todo.logo": "TODO logo",
   "cms.blocks.not_supported": "Block `{blockName}` is not supported ",
   "app.header.compatible_with_vektron": "Compatible plafonds van vektron",
-  "projects.view_all": "al onze projecten"
+  "projects.view_all": "al onze projecten",
+  "cms.blocks.error": "Vul alle verplichte velden in of probeer uw invoer te wijzigen",
+  "cms.blocks.error_title": "De data van uw block is incorrect."
 }

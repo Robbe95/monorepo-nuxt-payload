@@ -12,12 +12,8 @@ export interface Config {
   };
   collections: {
     media: Media;
+    images: Image;
     pages: Page;
-    posts: Post;
-    brands: Brand;
-    categories: Category;
-    products: Product;
-    orders: Order;
     users: User;
     addresses: Address;
     projects: Project;
@@ -25,19 +21,11 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {
-    brands: {
-      products: 'products';
-    };
-  };
+  collectionsJoins: {};
   collectionsSelect: {
     media: MediaSelect<false> | MediaSelect<true>;
+    images: ImagesSelect<false> | ImagesSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
-    posts: PostsSelect<false> | PostsSelect<true>;
-    brands: BrandsSelect<false> | BrandsSelect<true>;
-    categories: CategoriesSelect<false> | CategoriesSelect<true>;
-    products: ProductsSelect<false> | ProductsSelect<true>;
-    orders: OrdersSelect<false> | OrdersSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     addresses: AddressesSelect<false> | AddressesSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
@@ -98,15 +86,79 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "images".
+ */
+export interface Image {
+  id: string;
+  alt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    tablet?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    desktop?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    background?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages".
  */
 export interface Page {
   id: string;
   title: string;
   slug?: string | null;
-  blocks?:
-    | (HeroBlock | ImageTextBlock | TextBlock | ImageTextSquareBlock | ProductSelectionBlock | ProjectsBlock)[]
-    | null;
+  blocks?: (HeroBlock | ImageTextSquareBlock | ProductSelectionBlock | ProjectsBlock)[] | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    image?: (string | null) | Image;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -117,32 +169,10 @@ export interface Page {
 export interface HeroBlock {
   title: string;
   text: string;
-  backgroundImage: string | Media;
+  backgroundImage: string | Image;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ImageTextBlock".
- */
-export interface ImageTextBlock {
-  title: string;
-  text: string;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'image-text';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TextBlock".
- */
-export interface TextBlock {
-  title: string;
-  text: string;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'text';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -155,9 +185,9 @@ export interface ImageTextSquareBlock {
     label: string;
     link: string;
   };
-  firstImage: string | Media;
+  firstImage: string | Image;
   text: string;
-  secondImage: string | Media;
+  secondImage: string | Image;
   id?: string | null;
   blockName?: string | null;
   blockType: 'image-text-square';
@@ -172,7 +202,7 @@ export interface ProductSelectionBlock {
   products: {
     title: string;
     url: string;
-    productImage: string | Media;
+    productImage: string | Image;
     id?: string | null;
   }[];
   id?: string | null;
@@ -200,73 +230,7 @@ export interface Project {
   title: string;
   location: string;
   url: string;
-  images: string | Media;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: string;
-  title?: string | null;
-  content?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "brands".
- */
-export interface Brand {
-  id: string;
-  title?: string | null;
-  products?: {
-    docs?: (string | Product)[] | null;
-    hasNextPage?: boolean | null;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products".
- */
-export interface Product {
-  id: string;
-  title: string;
-  description?: string | null;
-  price: number;
-  images?: (string | Media)[] | null;
-  categories?: (string | Category)[] | null;
-  brand?: (string | null) | Brand;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: string;
-  title?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "orders".
- */
-export interface Order {
-  id: string;
-  user: string | User;
-  products: (string | Product)[];
-  status: 'cart' | 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
-  deliveryAddress: string | Address;
-  shippingAddress: string | Address;
-  remarks?: string | null;
-  orderedAt?: string | null;
+  images: string | Image;
   updatedAt: string;
   createdAt: string;
 }
@@ -321,28 +285,12 @@ export interface PayloadLockedDocument {
         value: string | Media;
       } | null)
     | ({
+        relationTo: 'images';
+        value: string | Image;
+      } | null)
+    | ({
         relationTo: 'pages';
         value: string | Page;
-      } | null)
-    | ({
-        relationTo: 'posts';
-        value: string | Post;
-      } | null)
-    | ({
-        relationTo: 'brands';
-        value: string | Brand;
-      } | null)
-    | ({
-        relationTo: 'categories';
-        value: string | Category;
-      } | null)
-    | ({
-        relationTo: 'products';
-        value: string | Product;
-      } | null)
-    | ({
-        relationTo: 'orders';
-        value: string | Order;
       } | null)
     | ({
         relationTo: 'users';
@@ -418,6 +366,78 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "images_select".
+ */
+export interface ImagesSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        card?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        tablet?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        desktop?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        background?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
@@ -435,22 +455,6 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        'image-text'?:
-          | T
-          | {
-              title?: T;
-              text?: T;
-              id?: T;
-              blockName?: T;
-            };
-        text?:
-          | T
-          | {
-              title?: T;
-              text?: T;
-              id?: T;
-              blockName?: T;
-            };
         'image-text-square'?:
           | T
           | {
@@ -461,7 +465,6 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     label?: T;
                     link?: T;
-                    'info-fragment'?: T;
                   };
               firstImage?: T;
               text?: T;
@@ -495,64 +498,13 @@ export interface PagesSelect<T extends boolean = true> {
               blockName?: T;
             };
       };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts_select".
- */
-export interface PostsSelect<T extends boolean = true> {
-  title?: T;
-  content?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "brands_select".
- */
-export interface BrandsSelect<T extends boolean = true> {
-  title?: T;
-  products?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories_select".
- */
-export interface CategoriesSelect<T extends boolean = true> {
-  title?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products_select".
- */
-export interface ProductsSelect<T extends boolean = true> {
-  title?: T;
-  description?: T;
-  price?: T;
-  images?: T;
-  categories?: T;
-  brand?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "orders_select".
- */
-export interface OrdersSelect<T extends boolean = true> {
-  user?: T;
-  products?: T;
-  status?: T;
-  deliveryAddress?: T;
-  shippingAddress?: T;
-  remarks?: T;
-  orderedAt?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

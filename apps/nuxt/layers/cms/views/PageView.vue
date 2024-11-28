@@ -9,6 +9,8 @@ const route = useRoute('page___en')
 const pageName = computed<string>(() => route.params.page)
 const pageQuery = usePageQuery({ slug: pageName.value })
 
+await pageQuery.suspense()
+
 const { data } = useLivePreview({
   initialData: pageQuery.data,
 })

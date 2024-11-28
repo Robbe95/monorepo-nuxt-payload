@@ -13,6 +13,6 @@ export const mediaCollection: CollectionConfig = {
   slug: 'media',
   upload:
   {
-    focalPoint: true,
+    staticDir: 'media',
   },
 }
