@@ -8,7 +8,7 @@ interface Props {
   product: ProductSelectionBlock['products'][number]
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 // keep track of my cursor, make #cursor-element follow it
 
 const cursorElement = useTemplateRef<HTMLElement>('cursor-element')
@@ -57,7 +57,7 @@ watch(
   >
     <CmsImage
       :image="product.productImage"
-      class="duration-200 group-hover:brightness-[0.25] lg:size-[300px] lg:flex-none"
+      class="duration-200 group-hover:brightness-[0.50] lg:size-[300px] lg:flex-none"
     />
     <!-- <div
       ref="cursor-element"

@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 export default defineNuxtConfig({
   components: [
     {
@@ -44,10 +46,11 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
     '@pinia/nuxt',
+    '@nuxtjs/sitemap',
     '@nuxt/fonts',
+    '@nuxtjs/robots',
     'nuxt-time',
     '@nuxtjs/tailwindcss',
-    '@nuxt/test-utils/module',
   ],
   runtimeConfig: {
     public: {
@@ -64,4 +67,12 @@ export default defineNuxtConfig({
       trpcBaseUrl: '',
     },
   },
+  sitemap: {
+    sources: [
+      `${process.env.NUXT_PUBLIC_TRPC_BASE_URL}/api/sitemap?locale=nl`,
+      `${process.env.NUXT_PUBLIC_TRPC_BASE_URL}/api/sitemap?locale=en`,
+      `${process.env.NUXT_PUBLIC_TRPC_BASE_URL}/api/sitemap?locale=fr`,
+    ],
+  },
+
 })
